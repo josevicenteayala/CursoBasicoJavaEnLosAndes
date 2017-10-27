@@ -57,32 +57,31 @@ public class Candidato
     /**
      * Número de votos influenciados por internet.
      */
-    //TODO Declare el atributo de votos influenciados por internet.
+    private int numeroVotosInfluenciadosPorInternet;
     
     /**
      * Número de votos de género femenino.
      */
-    //TODO Declare el atributo de género femenino.
+    private int numeroVotosGeneroFemenino;
     
     /**
      * Número de votos de género masculino.
      */
-    //TODO Declare el atributo de género masculino.
+    private int numeroVotosGeneroMasculino;
     
     /**
      * Número de votos de edad joven (18 - 34).
      */
-    //TODO Declare el atributo de rango de edad joven.
+    private int numeroVotosEnEdadJoven;
     
     /**
      * Número de votos de edad media (35 - 54).
      */
-    //TODO Declare el atributo de rango de edad media.
-    
+    private int numeroVotosEnEdadMedia;
     /**
      * Número de votos de edad mayor (55 ó más).
      */
-    //TODO Declare el atributo de rango de edad mayor.
+    private int numeroVotosEnEdadMayor;
 
 
     // -----------------------------------------------------------------
@@ -107,9 +106,12 @@ public class Candidato
         edad = nEdad;
         costoCampanha = 0;
         votos = 0;
-        
-        //TODO Inicialice los atributos de las estadísticas sobre los votos
-        
+        numeroVotosInfluenciadosPorInternet = 0;
+        numeroVotosGeneroFemenino = 0;
+        numeroVotosGeneroMasculino = 0;
+        numeroVotosEnEdadJoven = 0;
+        numeroVotosEnEdadMedia = 0;
+        numeroVotosEnEdadMayor = 0;
     }
 
     /**
@@ -172,7 +174,7 @@ public class Candidato
      */
     public int darVotosInfluenciaInternet()
     {
-    	//TODO  Complete el método segú la documentación.
+    	return numeroVotosInfluenciadosPorInternet;
     }
     
     /**
@@ -181,7 +183,7 @@ public class Candidato
      */
     public int darVotosGeneroFemenino()
     {
-    	//TODO  Complete el método segú la documentación.
+    	return numeroVotosGeneroFemenino;
     }
     
     /**
@@ -190,7 +192,7 @@ public class Candidato
      */
     public int darVotosGeneroMasculino()
     {
-    	//TODO  Complete el método segú la documentación.
+    	return numeroVotosGeneroMasculino;
     }
     
     /**
@@ -199,7 +201,7 @@ public class Candidato
      */
     public int darVotosEdadJoven()
     {
-    	//TODO  Complete el método segú la documentación.
+    	return numeroVotosEnEdadJoven;
     }
     
     /**
@@ -208,7 +210,7 @@ public class Candidato
      */
     public int darVotosEdadMedia()
     {
-    	//TODO  Complete el método segú la documentación.
+    	return numeroVotosEnEdadMedia;
     }
     
     /**
@@ -217,7 +219,7 @@ public class Candidato
      */
     public int darVotosEdadMayor()
     {
-    	//TODO  Complete el método segú la documentación.
+    	return numeroVotosEnEdadMayor;
     }
 
     /**
@@ -255,7 +257,9 @@ public class Candidato
      */
     public void agregarVotoInternet( )
     {
-    	//TODO  Complete el método segú la documentación.
+    	costoCampanha += 100; 
+    	ingresarUnVoto();
+    	numeroVotosInfluenciadosPorInternet++;
     }
     
     /**
@@ -264,7 +268,7 @@ public class Candidato
      */
     public void agregarVotoGeneroFemenino( )
     {
-    	//TODO  Complete el método segú la documentación.
+    	numeroVotosGeneroFemenino++;
     }
     
     /**
@@ -273,7 +277,7 @@ public class Candidato
      */
     public void agregarVotoGeneroMasculino( )
     {
-    	//TODO  Complete el método segú la documentación.
+    	numeroVotosGeneroMasculino++;
     }
     
     /**
@@ -282,7 +286,7 @@ public class Candidato
      */
     public void agregarVotoEdadJoven( )
     {
-    	//TODO  Complete el método segú la documentación.
+    	numeroVotosEnEdadJoven++;
     }
     
     /**
@@ -291,7 +295,7 @@ public class Candidato
      */
     public void agregarVotoEdadMedia( )
     {
-    	//TODO  Complete el método segú la documentación.
+    	numeroVotosEnEdadMedia++;
     }
     
     /**
@@ -300,7 +304,7 @@ public class Candidato
      */
     public void agregarVotoEdadMayor( )
     {
-    	//TODO  Complete el método segú la documentación.
+    	numeroVotosEnEdadMayor++;
     }
 
     /**
@@ -311,7 +315,12 @@ public class Candidato
     public void reiniciarConteoVotos( )
     {
         votos = 0;
-        //TODO  Complete el método segú la documentación.
+        numeroVotosGeneroFemenino = 0;
+        numeroVotosGeneroMasculino = 0;
+        numeroVotosEnEdadJoven = 0;
+        numeroVotosEnEdadMedia = 0;
+        numeroVotosEnEdadMayor = 0;
+        numeroVotosInfluenciadosPorInternet = 0;
     }
 
     /**
