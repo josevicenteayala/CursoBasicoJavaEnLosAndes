@@ -447,7 +447,10 @@ public class Urna
      */
     public double calcularPorcentajeVotosPorInternetCandidato1( )
     {
-    	return candidato1.darVotosInfluenciaInternet()/calcularTotalVotosInternet();
+    	int darVotosInfluenciaInternet = candidato1.darVotosInfluenciaInternet();
+		int calcularTotalVotosInternet = calcularTotalVotosInternet();
+		int porcentaje = 100 * darVotosInfluenciaInternet/calcularTotalVotosInternet;
+		return porcentaje;
     }
 
     /**
@@ -456,7 +459,10 @@ public class Urna
      */
     public double calcularPorcentajeVotosPorInternetCandidato2( )
     {
-    	return candidato2.darVotosInfluenciaInternet()/calcularTotalVotosInternet();
+    	int darVotosInfluenciaInternet = candidato2.darVotosInfluenciaInternet();
+		int calcularTotalVotosInternet = calcularTotalVotosInternet();
+		int porcentaje = 100 * darVotosInfluenciaInternet/calcularTotalVotosInternet;
+		return porcentaje;
     }
 
     /**
@@ -465,7 +471,10 @@ public class Urna
      */
     public double calcularPorcentajeVotosPorInternetCandidato3( )
     {
-    	return candidato3.darVotosInfluenciaInternet()/calcularTotalVotosInternet();
+    	int darVotosInfluenciaInternet = candidato3.darVotosInfluenciaInternet();
+		int calcularTotalVotosInternet = calcularTotalVotosInternet();
+		int porcentaje = 100 * darVotosInfluenciaInternet/calcularTotalVotosInternet;
+		return porcentaje;
     }
 
     /**
