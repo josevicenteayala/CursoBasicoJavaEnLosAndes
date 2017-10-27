@@ -82,8 +82,12 @@ public class Candidato
      * Número de votos de edad mayor (55 ó más).
      */
     private int numeroVotosEnEdadMayor;
+    /**
+     * Número de votos influenciados por televisión
+     */
+     private int votosInfluenciaTelevision;
 
-
+     private int votosInfluenciaRadio;
     // -----------------------------------------------------------------
     // Métodos
     // -----------------------------------------------------------------
@@ -175,6 +179,42 @@ public class Candidato
     public int darVotosInfluenciaInternet()
     {
     	return numeroVotosInfluenciadosPorInternet;
+    }
+    
+    /**
+    * Devuelve el número de votos influenciados por television.
+    * @return número de votos influenciados por television.
+    */    
+    public int darVotosInfluenciaTelevision() {
+    	return votosInfluenciaTelevision;
+    }
+    
+    /**
+    * Inicializa los atributos correspondientes a la influencia de los canales de televisión y radio en 0.
+    * También puede ser usado para el reinicio de los atributos de votos por influencia de la television y de la radio 
+    * a su valor inicial.
+    */
+    public void inicializarInfluenciaTelevision()
+    {	 
+    	votosInfluenciaTelevision = 0;
+        votosInfluenciaRadio = 0;
+    } 
+    
+    /**
+    * Agrega un voto influenciado por la televisión al atributo correspondiente
+    */    
+    public void agregarVotoInfluenciaTelevision( ){
+    	votosInfluenciaTelevision++;
+    }
+    
+    /**
+    * Devuelve el porcentaje de votos de influencia teniendo en cuenta los votos de television 
+    * sobre el total de votos recibidos.
+    * @return procentaje de votos total que fueron recibidos por television 
+    */
+          
+    public double darPorcentajeVotosInfluenciaTelevisionCanditato() {
+    	return 100 * (darVotosInfluenciaTelevision() / darVotos()) ;
     }
     
     /**

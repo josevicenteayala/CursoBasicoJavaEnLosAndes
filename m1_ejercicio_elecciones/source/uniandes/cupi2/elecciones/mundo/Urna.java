@@ -501,6 +501,16 @@ public class Urna
     // -----------------------------------------------------------------
 
     /**
+    * Devuelve el promedio de porcentaje de influencia de votos de television para todos los candidatos.
+    * @return promedio del porcentaje de votos influenciados por televisión para todos los candidatos.
+    */
+    public double darPromedioPorcentajeVotosInfluenciaTelevisionRadioCandidatos() {
+    	int totalVotosInfluenciadosPorTelevision = candidato1.darVotosInfluenciaTelevision() + candidato2.darVotosInfluenciaTelevision() + candidato3.darVotosInfluenciaTelevision();    	
+    	return totalVotosInfluenciadosPorTelevision / 3;
+    }
+    
+    
+    /**
      * M�todo para la extensi�n 1
      * @return respuesta1
      */
