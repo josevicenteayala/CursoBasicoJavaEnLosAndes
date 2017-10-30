@@ -195,6 +195,21 @@ public class Imagen
     }
 
     /**
+     * Reflejar imagen vertical: Consiste en intercambiar las filas enteras de la imagen, de las finales a la iniciales
+     */
+    public void reflejarImagenVertical( )
+    {
+        //Recorre la matriz hasta la mitad para intercambiar los colores de la columna
+        for( int i = 0; i < alto /2; i++ )
+            for( int j = 0; j < ancho; j++ )
+            {
+                Color temporal = bitmap[ i ][ j ];
+                bitmap[ i ][ j ] = bitmap[ i ][ alto - 1 - i ];
+                bitmap[ i ][ alto - 1 - i ] = temporal;
+            }
+    }     
+    
+    /**
      * Binarización: Consiste en llevar cada píxel de una imagen a negro o blanco. Para ello se requiere un umbral: si el color del píxel está por encima o igual se lleva a
      * blanco y si está por debajo se lleva a negro.
      * @param umbral Umbral para la binarización.
