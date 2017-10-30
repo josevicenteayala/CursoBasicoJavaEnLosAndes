@@ -33,11 +33,11 @@ public class AvionTest extends TestCase
     /**
      * Pasajero 1
      */
-    private Pasajero p1;
+    private Pasajero pasajero1;
     /**
      * Pasajero 2
      */
-    private Pasajero p2;
+    private Pasajero pasajero2;
     /**
      * Pasajero 3
      */
@@ -83,14 +83,14 @@ public class AvionTest extends TestCase
         cedula2 = 23456;
 
         //Crea los pasajeros
-        p1 = new Pasajero( cedula1, nombre1 );
-        p2 = new Pasajero( cedula2, nombre2 );
+        pasajero1 = new Pasajero( cedula1, nombre1 );
+        pasajero2 = new Pasajero( cedula2, nombre2 );
 
         //Asigna el primer pasajero en una silla ejecutiva de la ventana
-        avion.asignarSilla( Silla.CLASE_EJECUTIVA, Silla.VENTANA, p1 );
+        avion.asignarSilla( Silla.CLASE_EJECUTIVA, Silla.VENTANA, pasajero1 );
 
         //Asigna al segundo pasajero en una silla económica del pasillo
-        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.PASILLO, p2 );
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.PASILLO, pasajero2 );
 
     }
 
@@ -127,7 +127,7 @@ public class AvionTest extends TestCase
         //Configura los datos de prueba
         setupEscenario1( );
 
-        sillaP1 = avion.buscarPasajero( p1 );
+        sillaP1 = avion.buscarPasajero( pasajero1 );
 
         //El pasajero 1 viaja en ejecutivo
         assertEquals( Silla.CLASE_EJECUTIVA, sillaP1.darClase( ) );
@@ -140,7 +140,7 @@ public class AvionTest extends TestCase
 
         //El pasajero debe ser el mismo
         p = sillaP1.darPasajero( );
-        assertTrue( p1.igualA( p ) );
+        assertTrue( pasajero1.igualA( p ) );
 
     }
 
@@ -155,7 +155,7 @@ public class AvionTest extends TestCase
         //Configura los datos de prueba
         setupEscenario1( );
 
-        sillaP2 = avion.buscarPasajero( p2 );
+        sillaP2 = avion.buscarPasajero( pasajero2 );
 
         //El pasajero 2 viaja en económica
         assertEquals( Silla.CLASE_ECONOMICA, sillaP2.darClase( ) );
@@ -168,7 +168,7 @@ public class AvionTest extends TestCase
 
         //El pasajero debe ser el mismo
         p = sillaP2.darPasajero( );
-        assertTrue( p2.igualA( p ) );
+        assertTrue( pasajero2.igualA( p ) );
 
     }
 
@@ -183,7 +183,7 @@ public class AvionTest extends TestCase
         //Configura los datos de prueba
         setupEscenario1( );
 
-        s = avion.buscarPasajeroEconomico( p2 );
+        s = avion.buscarPasajeroEconomico( pasajero2 );
         if( s == null )
             fail( "El pasajero debería existir" );
         else
@@ -204,7 +204,7 @@ public class AvionTest extends TestCase
         //Configura los datos de prueba
         setupEscenario1( );
 
-        s = avion.buscarPasajeroEconomico( p1 );
+        s = avion.buscarPasajeroEconomico( pasajero1 );
         if( s == null )
             assertTrue( true );
         else
@@ -224,7 +224,7 @@ public class AvionTest extends TestCase
         //Configura los datos de prueba
         setupEscenario1( );
 
-        s = avion.buscarPasajeroEjecutivo( p1 );
+        s = avion.buscarPasajeroEjecutivo( pasajero1 );
         if( s == null )
             fail( "El pasajero debería existir" );
         else
@@ -245,7 +245,7 @@ public class AvionTest extends TestCase
         //Configura los datos de prueba
         setupEscenario1( );
 
-        s = avion.buscarPasajeroEjecutivo( p2 );
+        s = avion.buscarPasajeroEjecutivo( pasajero2 );
         if( s == null )
             assertTrue( true );
         else
@@ -379,15 +379,156 @@ public class AvionTest extends TestCase
         //Configura los datos de prueba
         setupEscenario1( );
 
-        avion.desasignarSilla( p1 );
+        avion.desasignarSilla( pasajero1 );
 
         //Ya el pasajero no debe estar en el avión
-        s = avion.buscarPasajero( p1 );
+        s = avion.buscarPasajero( pasajero1 );
 
         if( s == null )
             assertTrue( true );
         else
             fail( "El pasajero no debería estar" );
     }
+    
+    /**
+     * Verifica el metodo darPorcentajeSillasEconomicasOcupadasPares
+     */
+    public void darPorcentajeSillasEconomicasOcupadasParesTest() {
+    	Avion avion = new Avion();
 
+        //Prepara los nombres y cédulas
+        nombre1 = "Camilo Pérez";
+        cedula1 = 12345;
+        nombre2 = "Fernando Santander";
+        cedula2 = 23456;
+
+        //Crea los pasajeros
+        pasajero1 = new Pasajero( cedula1, nombre1 );
+        pasajero2 = new Pasajero( cedula2, nombre2 );
+
+        //Asigna el primer pasajero en una silla ejecutiva de la ventana
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.VENTANA, pasajero1 );
+        //Asigna el primer pasajero en una silla ejecutiva del centro
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.CENTRAL, pasajero1 );        
+        
+        //Asigna al segundo pasajero en una silla económica del pasillo
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.PASILLO, pasajero2 );    	
+    	
+        double porcentajeSillasEconomicasOcupadasPares = avion.darPorcentajeSillasEconomicasOcupadasPares();
+        System.out.println(porcentajeSillasEconomicasOcupadasPares);
+    }
+    
+    public void darNumParejasSillasEconomicasContiguasOcupadasTest() {
+    	Avion avion = new Avion();
+
+        //Prepara los nombres y cédulas
+        nombre1 = "Camilo Pérez";
+        cedula1 = 12345;
+        nombre2 = "Fernando Santander";
+        cedula2 = 23456;
+
+        //Crea los pasajeros
+        pasajero1 = new Pasajero( cedula1, nombre1 );
+        pasajero2 = new Pasajero( cedula2, nombre2 );
+
+        /*Sillas 9 -10 -11*/
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.VENTANA, pasajero1 );
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.CENTRAL, pasajero1 );        
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.PASILLO, pasajero2 );  
+        
+        /*Sillas 12 -13 -14*/
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.PASILLO, pasajero1 );
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.CENTRAL, pasajero1 );        
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.VENTANA, pasajero2 );        
+
+        /*Sillas 15 -16 -17*/
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.VENTANA, pasajero1 );
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.CENTRAL, pasajero1 );        
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.PASILLO, pasajero2 );        
+        
+        /*Sillas 18 -19 -20*/
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.PASILLO, pasajero1 );
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.CENTRAL, pasajero1 );        
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.VENTANA, pasajero2 );        
+        
+        /*Sillas 21 -22 -23*/
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.VENTANA, pasajero1 );
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.CENTRAL, pasajero1 );        
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.PASILLO, pasajero2 );  
+        
+        /*Sillas 21 -25 -26*/
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.PASILLO, pasajero1 );
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.CENTRAL, pasajero1 );        
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.VENTANA, pasajero2 );        
+
+        /*Sillas 27 -28 -29*/
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.VENTANA, pasajero1 );
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.CENTRAL, pasajero1 );        
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.PASILLO, pasajero2 );        
+        
+        /*Sillas 30 -31 -32*/
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.PASILLO, pasajero1 );
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.CENTRAL, pasajero1 );        
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.VENTANA, pasajero2 );         
+        
+        /*Sillas 33 -34 -35*/
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.VENTANA, pasajero1 );
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.CENTRAL, pasajero1 );        
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.PASILLO, pasajero2 );        
+        
+        /*Sillas 36 -37 -38*/
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.PASILLO, pasajero1 );
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.CENTRAL, pasajero1 );        
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.VENTANA, pasajero2 );        
+        
+        /*Sillas 39 -40 -41*/
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.VENTANA, pasajero1 );
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.CENTRAL, pasajero1 );        
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.PASILLO, pasajero2 );  
+        
+        /*Sillas 42 -43 -44*/
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.PASILLO, pasajero1 );
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.CENTRAL, pasajero1 );        
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.VENTANA, pasajero2 );        
+
+        /*Sillas 45 -46 -47*/
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.VENTANA, pasajero1 );
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.CENTRAL, pasajero1 );        
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.PASILLO, pasajero2 );        
+        
+        /*Sillas 48 -49 -50*/
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.PASILLO, pasajero1 );
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.CENTRAL, pasajero1 );        
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.VENTANA, pasajero2 );        
+        System.out.println(avion.darNumParejasSillasEconomicasContiguasOcupadas());
+        
+    }
+
+    
+    public void hayPasajerosHomonimosTest() {
+    	Avion avion = new Avion();
+
+        //Prepara los nombres y cédulas
+        nombre1 = "Camilo Pérez";
+        cedula1 = 12345;
+        nombre2 = "Camilo Pérez";
+        cedula2 = 23456;
+
+        //Crea los pasajeros
+        pasajero1 = new Pasajero( cedula1, nombre1 );
+        pasajero2 = new Pasajero( cedula2, nombre2 );
+
+        /*Sillas 9 -10 -11*/
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.VENTANA, pasajero1 );
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.CENTRAL, pasajero1 );        
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.PASILLO, pasajero2 );  
+        
+        /*Sillas 12 -13 -14*/
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.PASILLO, pasajero1 );
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.CENTRAL, pasajero1 );        
+        avion.asignarSilla( Silla.CLASE_ECONOMICA, Silla.VENTANA, pasajero2 ); 
+        
+        System.out.println(avion.hayPasajerosHomonimos());
+    }
+    
 }
