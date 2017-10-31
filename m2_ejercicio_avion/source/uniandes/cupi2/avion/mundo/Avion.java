@@ -356,6 +356,111 @@ public class Avion
 		return duracionTodasLasPeliculas;
 	}
     
+    /**
+    * Retorna la lista de pasajeros cuyas películas tienen una duración promedio mayor a la dada 
+    * como parámetro.
+    * @param duracion - Duración promedio mínima para que un pasajero sea incluido en 
+    * la lista respuesta 
+    * @return Lista con los pasajeros cuyas películas tienen una duración promedio mayor al parámetro
+    */
+    public ArrayList<Pasajero> darPasajerosConDuracionPromedioPeliculasMayorA(int duracion){
+    	ArrayList<Pasajero> listaPasajerosEncontrados = new ArrayList<>();
+        for( int i = 0; i < SILLAS_EJECUTIVAS; i++ )
+        {
+            if( sillasEjecutivas[ i ].sillaAsignada( ))
+            {
+            	Pasajero pasajero = sillasEjecutivas[ i ].darPasajero();
+				if(pasajero.calcularDuracionPromedioPeliculas() > duracion) {
+            		listaPasajerosEncontrados.add(pasajero);
+            	}
+            }
+        }    	
+    	
+        for( int i = 0; i < SILLAS_ECONOMICAS; i++ )
+        {
+            if( sillasEconomicas[ i ].sillaAsignada( ))
+            {
+            	Pasajero pasajero = sillasEconomicas[ i ].darPasajero();
+				if(pasajero.calcularDuracionPromedioPeliculas() > duracion) {
+            		listaPasajerosEncontrados.add(pasajero);
+            	}
+            }
+        }         
+    	
+    	return listaPasajerosEncontrados;
+    }
+	
+    /**
+    * Retorna la película de menor duración en el avión
+    * @return - Película de menor duración en el avión; null en caso que no haya ninguna película en el avión
+    */    
+    public Pelicula darPeliculaMasCorta() {
+    	Pelicula peliculaMasCortaEnElAvion = null;
+    	int duracionPelicula = 9999999;
+        for( int i = 0; i < SILLAS_EJECUTIVAS; i++ )
+        {
+            if( sillasEjecutivas[ i ].sillaAsignada( ) && sillasEjecutivas[ i ].darPasajero() != null)
+            {
+            	Pasajero pasajero = sillasEjecutivas[ i ].darPasajero();
+				if(pasajero.darPeliculaMasCorta() != null && duracionPelicula > pasajero.darPeliculaMasCorta().darDuracion() ) {
+					duracionPelicula = pasajero.darPeliculaMasCorta().darDuracion();
+				    peliculaMasCortaEnElAvion =  pasajero.darPeliculaMasCorta();
+            	}
+            }
+        }    	
+    	
+        for( int i = 0; i < SILLAS_ECONOMICAS; i++ )
+        {
+            if( sillasEconomicas[ i ].sillaAsignada( ) && sillasEconomicas[ i ].darPasajero() != null)
+            {
+            	Pasajero pasajero = sillasEconomicas[ i ].darPasajero();
+				if(pasajero.darPeliculaMasCorta() != null && duracionPelicula > pasajero.darPeliculaMasCorta().darDuracion() ) {
+					duracionPelicula = pasajero.darPeliculaMasCorta().darDuracion();
+				    peliculaMasCortaEnElAvion =  pasajero.darPeliculaMasCorta();
+            	}
+            }
+        }     	
+    	
+    	
+    	return peliculaMasCortaEnElAvion;
+    }
+    
+    /**
+    * Retorna la primera película del avión cuyo nombre inicia con la letra dada como parámetro
+    * @param letra - Letra por la cual inicia el nombre de la película buscada
+    * @return Primera película cuyo nombre inicia con la letra dada; null en caso de no existir ninguna 
+    * que empiece por esa letra
+    */
+    public Pelicula darPrimerPeliculaEmpiezaPor(char letra) {
+    	Pelicula peliculaConLetraIndicada = null;
+        for( int i = 0; i < SILLAS_EJECUTIVAS; i++ )
+        {
+            if( sillasEjecutivas[ i ].sillaAsignada( ))
+            {
+            	Pasajero pasajero = sillasEjecutivas[ i ].darPasajero();
+				Pelicula peliculaEncontrada = pasajero.buscarPrimerPeliculaEmpiezaPor(letra);
+				if(peliculaEncontrada != null ) {
+					return peliculaEncontrada;
+            	}
+            }
+        }    	
+    	
+        for( int i = 0; i < SILLAS_ECONOMICAS; i++ )
+        {
+            if( sillasEconomicas[ i ].sillaAsignada( ))
+            {
+            	Pasajero pasajero = sillasEconomicas[ i ].darPasajero();
+				Pelicula peliculaEncontrada = pasajero.buscarPrimerPeliculaEmpiezaPor(letra);
+				if(peliculaEncontrada != null ) {
+					return peliculaEncontrada;
+            	}
+            }
+        }     	
+    	
+    	
+    	return peliculaConLetraIndicada;
+    }
+    
     
     /**
      * Método 1 de extensión al ejemplo

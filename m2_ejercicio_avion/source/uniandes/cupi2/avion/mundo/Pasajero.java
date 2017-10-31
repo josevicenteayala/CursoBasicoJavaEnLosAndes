@@ -35,7 +35,7 @@ public class Pasajero
     /**
      * Lista de películas del pasajero.
      */
-    private ArrayList<Pelicula> listaDePeliculas;
+    private ArrayList<Pelicula> peliculas;
 
     //-----------------------------------------------------------------
     // Constructores
@@ -51,7 +51,7 @@ public class Pasajero
     {
         cedula = unaCedula;
         nombre = unNombre;        
-        listaDePeliculas = new ArrayList<>();
+        peliculas = new ArrayList<>();
     }
 
     //-----------------------------------------------------------------
@@ -95,7 +95,7 @@ public class Pasajero
      */
     public ArrayList<Pelicula> darPeliculas()
     {
-    	return listaDePeliculas;
+    	return peliculas;
     }
     
     /**
@@ -108,7 +108,7 @@ public class Pasajero
     public void agregarPelicula(String nombre, String genero, int duracion, String director)
     {
     	Pelicula pelicula = new Pelicula(nombre, genero, duracion, director);
-    	listaDePeliculas.add(pelicula);
+    	peliculas.add(pelicula);
     }
     
     /**
@@ -118,8 +118,8 @@ public class Pasajero
     public int darDuracionTotalPeliculas()
     {
     	int sumatoriaDuracionPelicula = 0;
-    	for (int i = 0; i < listaDePeliculas.size(); i++) {
-			Pelicula pelicula = listaDePeliculas.get(i);
+    	for (int i = 0; i < peliculas.size(); i++) {
+			Pelicula pelicula = peliculas.get(i);
 			sumatoriaDuracionPelicula += pelicula.darDuracion();
 		}
     	return sumatoriaDuracionPelicula;
@@ -133,8 +133,8 @@ public class Pasajero
     public ArrayList<Pelicula> darPeliculasGenero(String genero)
     {
     	ArrayList<Pelicula> listaPeliculasConGeneroIndicado = new ArrayList<>();
-    	for (int i = 0; i < listaDePeliculas.size(); i++) {
-			Pelicula pelicula = listaDePeliculas.get(i);
+    	for (int i = 0; i < peliculas.size(); i++) {
+			Pelicula pelicula = peliculas.get(i);
 			if(pelicula.darGenero().equals(genero)) {
 				listaPeliculasConGeneroIndicado.add(pelicula);
 			}
@@ -148,10 +148,10 @@ public class Pasajero
      */
     public boolean tienePeliculasMismaDuracion()
     {
-    	for (int i = 0; i < listaDePeliculas.size(); i++) {
-			Pelicula pelicula = listaDePeliculas.get(i);
-			for(int j = 0; j< listaDePeliculas.size();j++) {
-				Pelicula pelicula2 = listaDePeliculas.get(j);
+    	for (int i = 0; i < peliculas.size(); i++) {
+			Pelicula pelicula = peliculas.get(i);
+			for(int j = 0; j< peliculas.size();j++) {
+				Pelicula pelicula2 = peliculas.get(j);
 				if(!pelicula.darNombre().equalsIgnoreCase(pelicula2.darNombre()) &&  pelicula.darDuracion() == pelicula2.darDuracion()) {
 					return true;
 				}
@@ -160,7 +160,56 @@ public class Pasajero
     	return false;
     }
     
+    /**
+    * Calcula la duración promedio de las películas del pasajero.
+    * @return Duración promedio de las películas del pasajero; 0 en caso que el pasajero no tenga películas
+    */    
+    public double calcularDuracionPromedioPeliculas() {
+    	if(peliculas == null || peliculas.size() == 0) return 0;
+    	int duracionPromedio = darDuracionTotalPeliculas() / peliculas.size();
+    	return (double)duracionPromedio;
+    }
     
+    /**
+    * Retorna la película de menor duración del pasajero. En caso que no tenga películas, retorna null.
+    * @return Película más corta del pasajero; null en caso que no tenga
+    */
+
+    public Pelicula darPeliculaMasCorta() {
+    	int duracionCorta = 999999999;
+    	Pelicula peliculaCorta = null;
+    	if(peliculas==null || peliculas.size()<=0) {
+    		return peliculaCorta;
+    	}
+    	for (int i = 0; i < peliculas.size(); i++) {
+			Pelicula pelicula = peliculas.get(i);
+			if(duracionCorta> pelicula.darDuracion()) {
+				peliculaCorta = pelicula;
+				duracionCorta = pelicula.darDuracion();
+			}
+    	}
+    	return peliculaCorta;
+    }
     
+    /**
+    * Busca la primera película del pasajero cuyo nombre empieza por la letra dada como parámetro
+    * @param letra - La letra por la cual empieza el nombre de la película buscada
+    * @return - Película cuyo nombre empieza por la letra dada; null en caso de no existir ninguna que empiece por 
+    * esa letra
+    */
+    
+    public Pelicula buscarPrimerPeliculaEmpiezaPor(char letra){
+    	Pelicula peliculaComienzaPorLetra = null;
+    	if(peliculas==null || peliculas.size()<=0) {
+    		return peliculaComienzaPorLetra;
+    	}    	
+    	for (int i = 0; i < peliculas.size(); i++) {
+			Pelicula pelicula = peliculas.get(i);
+			if(pelicula.darNombre().startsWith(String.valueOf(letra))) {
+				return pelicula;
+			}
+    	}    	
+    	return peliculaComienzaPorLetra;
+    }
     
 }

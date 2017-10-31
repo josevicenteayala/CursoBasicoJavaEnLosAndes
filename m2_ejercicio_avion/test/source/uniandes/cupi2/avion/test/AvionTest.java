@@ -11,6 +11,8 @@
  */
 package uniandes.cupi2.avion.test;
 
+import java.util.ArrayList;
+
 import junit.framework.TestCase;
 import uniandes.cupi2.avion.mundo.Avion;
 import uniandes.cupi2.avion.mundo.Pasajero;
@@ -86,12 +88,13 @@ public class AvionTest extends TestCase
         //Crea los pasajeros
         p1 = new Pasajero( cedula1, nombre1 );
         p2 = new Pasajero( cedula2, nombre2 );
-        p1.agregarPelicula("p1", Pelicula.ACCION, 111, "d1");
-    	p1.agregarPelicula("p2", Pelicula.COMEDIA, 222, "d2");
-    	p1.agregarPelicula("p3", Pelicula.DRAMA, 333, "d3");
-    	p2.agregarPelicula("p4", Pelicula.ROMANCE, 444, "d4");
-    	p2.agregarPelicula("p5", Pelicula.ACCION, 555, "d5");
-    	p2.agregarPelicula("p6", Pelicula.COMEDIA, 111, "d6");
+        p1.agregarPelicula("Batman", Pelicula.ACCION, 111, "d1");
+    	p1.agregarPelicula("Catman", Pelicula.COMEDIA, 222, "d2");
+    	p1.agregarPelicula("Sandman", Pelicula.DRAMA, 333, "d3");
+    	p2.agregarPelicula("Alban", Pelicula.ROMANCE, 444, "d4");
+    	p2.agregarPelicula("Jacksan", Pelicula.ACCION, 555, "d5");
+    	p2.agregarPelicula("Darman", Pelicula.COMEDIA, 111, "d6");
+    	p2.agregarPelicula("Bad Girl", Pelicula.COMEDIA, 111, "d7");
 
         //Asigna el primer pasajero en una silla ejecutiva de la ventana
         avion.asignarSilla( Silla.CLASE_EJECUTIVA, Silla.VENTANA, p1 );
@@ -403,7 +406,29 @@ public class AvionTest extends TestCase
     public void testDarDuracionTotalPeliculas()
     {
     	setupEscenario1();
-    	assertEquals("La duración debería ser 1776 minutos.", 1776, avion.darDuracionTotalPeliculas());
+    	assertEquals("La duración debería ser 1887 minutos.", 1887, avion.darDuracionTotalPeliculas());
     }
 
+    
+    public void testDarPasajerosConDuracionPromedioPeliculasMayorA() {
+        setupEscenario1( );
+        ArrayList<Pasajero> darPasajerosConDuracionPromedioPeliculasMayorA = avion.darPasajerosConDuracionPromedioPeliculasMayorA(111);
+		assertTrue("El arreglo de pasajeros con duracion mayor debe tener otro valor.", darPasajerosConDuracionPromedioPeliculasMayorA != null);
+        
+    }
+    
+    public void testDarPeliculaMasCorta() {
+        setupEscenario1( );
+        Pelicula peliculaMasCorta = avion.darPeliculaMasCorta();
+		assertTrue("La pelicula mas corta es otra.", peliculaMasCorta.darNombre().equals("Batman"));
+        
+    }    
+    
+    public void testDarPrimerPeliculaEmpiezaPor() {
+        setupEscenario1( );
+        Pelicula peliculaMasCorta = avion.darPrimerPeliculaEmpiezaPor('B');
+		assertTrue("La pelicula mas corta es otra.", peliculaMasCorta.darNombre().equals("Batman"));
+        
+    }     
+    
 }

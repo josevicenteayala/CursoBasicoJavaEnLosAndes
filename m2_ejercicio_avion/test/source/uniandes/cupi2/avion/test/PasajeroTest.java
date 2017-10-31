@@ -60,6 +60,19 @@ public class PasajeroTest extends TestCase
     }
     
     /**
+     * Escenario 3: Crea un pasajero con películas.
+     */
+    private void setupEscenario4()
+    {
+    	pasajero = new Pasajero(123456, "Radamel Falcao");
+    	pasajero.agregarPelicula("Batman", Pelicula.ACCION, 111, "d1");
+    	pasajero.agregarPelicula("Wonder Woman", Pelicula.COMEDIA, 222, "d2");
+    	pasajero.agregarPelicula("It", Pelicula.DRAMA, 333, "d3");
+    	pasajero.agregarPelicula("Saw", Pelicula.ACCION, 444, "d4");
+    	pasajero.agregarPelicula("Hard to Die", Pelicula.ACCION, 555, "d5");
+    }    
+    
+    /**
      * Prueba 1: Verifica que el pasajero sea creado correctamente, creando la lista de películas vacía.
      */
     public void testCrearPasajero()
@@ -125,5 +138,28 @@ public class PasajeroTest extends TestCase
     	assertFalse("Debería ser falso.", pasajero.tienePeliculasMismaDuracion());
     }
     
+    public void testCalcularDuracionPromedioPeliculas() {
+    	setupEscenario1();
+    	assertTrue("Deberia ser cero.",pasajero.calcularDuracionPromedioPeliculas() == 0);
+    	
+    	setupEscenario2();
+    	assertTrue("Deberia ser mayor a cero.",pasajero.calcularDuracionPromedioPeliculas() > 0);
+    }
     
+    public void testDarPeliculaMasCorta() {
+    	setupEscenario1();
+    	assertTrue("Deberia ser null.",pasajero.darPeliculaMasCorta()== null);
+    	
+    	setupEscenario3();
+    	assertTrue("Deberia ser mayor a cero.",pasajero.darPeliculaMasCorta().darNombre().equals("p1"));    	
+    }
+    
+    
+    public void testBuscarPrimerPeliculaEmpiezaPor() {
+    	setupEscenario1();
+    	assertTrue("Deberia ser null.",pasajero.buscarPrimerPeliculaEmpiezaPor('s')== null);
+    	
+    	setupEscenario4();
+    	assertTrue("Deberia ser el nombre de la pelicula.",pasajero.buscarPrimerPeliculaEmpiezaPor('W').darNombre().equals("Wonder Woman"));    	
+    }    
 }
