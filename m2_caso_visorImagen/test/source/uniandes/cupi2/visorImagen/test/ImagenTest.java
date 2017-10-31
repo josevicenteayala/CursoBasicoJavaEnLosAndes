@@ -1,14 +1,14 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id$ 
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
  * Ejercicio: n6_visorImagen 
  * Autor: Katalina Marcos
- * Modificación: Mario Sánchez - 28/06/2005
- * Modificación: Pablo Barvo - 1-Sep-2005
+ * Modificaciï¿½n: Mario Sï¿½nchez - 28/06/2005
+ * Modificaciï¿½n: Pablo Barvo - 1-Sep-2005
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
  */
 
@@ -21,7 +21,7 @@ import junit.framework.*;
 import uniandes.cupi2.visorImagen.mundo.*;
 
 /**
- * Clase de prueba para el visor de imágenes
+ * Clase de prueba para el visor de imï¿½genes
  */
 public class ImagenTest extends TestCase
 {
@@ -45,7 +45,7 @@ public class ImagenTest extends TestCase
     private int ancho;
 
     //-----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     //-----------------------------------------------------------------
 
     /**
@@ -103,7 +103,7 @@ public class ImagenTest extends TestCase
     }
 
     /**
-     * Prueba la carga de una imagen menor al máximo
+     * Prueba la carga de una imagen menor al mï¿½ximo
      */
     public void testCargaImagenPequenia( )
     {
@@ -113,7 +113,7 @@ public class ImagenTest extends TestCase
         //El ancho y el alto de la imagen deben ser el esperado
         assertEquals( ancho, imagen.darAncho( ) );
         assertEquals( alto, imagen.darAlto( ) );
-        //los límites de la imagen deben ser menores a los máximos
+        //los lï¿½mites de la imagen deben ser menores a los mï¿½ximos
         assertTrue( imagen.darAlto( ) < Imagen.ALTO_MAXIMO );
         assertTrue( imagen.darAncho( ) < Imagen.ANCHO_MAXIMO );
     }
@@ -132,18 +132,18 @@ public class ImagenTest extends TestCase
     }
 
     /**
-     * Prueba la carga de una imagen mayor al máximo
+     * Prueba la carga de una imagen mayor al mï¿½ximo
      */
     public void testCargaImagenGrande( )
     {
         //Configura el escenario de prueba
         setupEscenario3( );
 
-        //El ancho y alto de la imagen original son mayores a los máximos
+        //El ancho y alto de la imagen original son mayores a los mï¿½ximos
         assertTrue( ancho > Imagen.ANCHO_MAXIMO );
         assertTrue( alto > Imagen.ALTO_MAXIMO );
 
-        //El ancho y el alto de la imagen cargada deben ser los máximos
+        //El ancho y el alto de la imagen cargada deben ser los mï¿½ximos
         //porque se trunca
         assertEquals( Imagen.ANCHO_MAXIMO, imagen.darAncho( ) );
         assertEquals( Imagen.ALTO_MAXIMO, imagen.darAlto( ) );
@@ -168,7 +168,7 @@ public class ImagenTest extends TestCase
     }
 
     /**
-     * Prueba del cálculo del color promedio
+     * Prueba del cï¿½lculo del color promedio
      */
     public void testColorPromedioImagenBlanca( )
     {
@@ -194,5 +194,11 @@ public class ImagenTest extends TestCase
                 assertEquals( Color.black.getRGB( ), imagen.darColorPixel( i, j ).getRGB( ) );
             }
         }
+    }
+    
+    public void compararColores() {
+    		Color color1 = new Color(Color.RED.getRed(), Color.GREEN.getGreen(), Color.BLUE.getBlue());
+    		Color color2 = new Color(Color.RED.getRed(), Color.GREEN.getGreen(), Color.BLUE.getBlue());
+    		System.out.println(" Son iguales los colores "+color1.equals(color2));
     }
 }

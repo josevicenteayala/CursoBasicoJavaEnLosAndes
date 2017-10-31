@@ -1,14 +1,14 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id$ 
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
  * Ejercicio: n6_visorImagen 
  * Autor: Katalina Marcos
- * Modificación: Mario Sánchez - 28/06/2005
- * Modificación: Pablo Barvo - 1-Sep-2005
+ * Modificaciï¿½n: Mario Sï¿½nchez - 28/06/2005
+ * Modificaciï¿½n: Pablo Barvo - 1-Sep-2005
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
  */
 package uniandes.cupi2.visorImagen.interfaz;
@@ -58,12 +58,12 @@ public class PanelBotones extends JPanel implements ActionListener
     public final static String CONVOLUCION = "CONVOLUCION";
 
     /**
-     * Extensión 1
+     * Extensiï¿½n 1
      */
-    public final static String EXTENSION_1 = "EXTENSION_1";
+    public final static String ROTACIONDERECHA = "ROTACIONDERECHA";
 
     /**
-     * Extensión 2
+     * Extensiï¿½n 2
      */
     public final static String EXTENSION_2 = "EXTENSION_2";
 
@@ -72,42 +72,42 @@ public class PanelBotones extends JPanel implements ActionListener
     //-----------------------------------------------------------------
 
     /**
-     * Botón negativo
+     * Botï¿½n negativo
      */
     private JButton butNegativo;
 
     /**
-     * Botón reflejar
+     * Botï¿½n reflejar
      */
     private JButton butReflejar;
 
     /**
-     * Botón binarizar
+     * Botï¿½n binarizar
      */
     private JButton butBinarizar;
 
     /**
-     * Botón pixelar
+     * Botï¿½n pixelar
      */
     private JButton butPixelar;
 
     /**
-     * Botón escala de grises
+     * Botï¿½n escala de grises
      */
     private JButton butEscalaGrises;
 
     /**
-     * Botón operador de convolución
+     * Botï¿½n operador de convoluciï¿½n
      */
     private JButton butConvolucion;
 
     /**
-     * Botón extensión 1
+     * Botï¿½n extensiï¿½n 1
      */
     private JButton butExtension1;
 
     /**
-     * Botón extensión 2
+     * Botï¿½n extensiï¿½n 2
      */
     private JButton butExtension2;
 
@@ -133,7 +133,7 @@ public class PanelBotones extends JPanel implements ActionListener
         //Guarda la referencia al padre
         ventana = laVentana;
 
-        //Establece el distribuidor gráfico
+        //Establece el distribuidor grï¿½fico
         setLayout( new GridLayout( 6, 1 ) );
 
         //Crea e inicializa los elementos de la interfaz
@@ -145,11 +145,11 @@ public class PanelBotones extends JPanel implements ActionListener
         butReflejar.setActionCommand( REFLEJAR );
         butReflejar.addActionListener( this );
 
-        butBinarizar = new JButton( "Binarización" );
+        butBinarizar = new JButton( "Binarizaciï¿½n" );
         butBinarizar.setActionCommand( BINARIZAR );
         butBinarizar.addActionListener( this );
 
-        butPixelar = new JButton( "Píxeles" );
+        butPixelar = new JButton( "Pï¿½xeles" );
         butPixelar.setActionCommand( PIXELAR );
         butPixelar.addActionListener( this );
 
@@ -157,15 +157,15 @@ public class PanelBotones extends JPanel implements ActionListener
         butEscalaGrises.setActionCommand( ESCALA_GRISES );
         butEscalaGrises.addActionListener( this );
 
-        butConvolucion = new JButton( "Convolución" );
+        butConvolucion = new JButton( "Convoluciï¿½n" );
         butConvolucion.setActionCommand( CONVOLUCION );
         butConvolucion.addActionListener( this );
 
-        butExtension1 = new JButton( "Extensión 1" );
-        butExtension1.setActionCommand( EXTENSION_1 );
+        butExtension1 = new JButton( "Rotacion A La Derecha" );
+        butExtension1.setActionCommand( ROTACIONDERECHA );
         butExtension1.addActionListener( this );
 
-        butExtension2 = new JButton( "Extensión 2" );
+        butExtension2 = new JButton( "Extensiï¿½n 2" );
         butExtension2.setActionCommand( EXTENSION_2 );
         butExtension2.addActionListener( this );
 
@@ -181,12 +181,12 @@ public class PanelBotones extends JPanel implements ActionListener
     }
 
     //-----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     //-----------------------------------------------------------------
 
     /**
      * Ejecuta las acciones de los elementos de la interfaz
-     * @param evento Evento de la acción. evento != null.
+     * @param evento Evento de la acciï¿½n. evento != null.
      */
     public void actionPerformed( ActionEvent evento )
     {
@@ -215,9 +215,9 @@ public class PanelBotones extends JPanel implements ActionListener
         {
             ventana.presentarDialogoMatrizConvolucion( );
         }
-        else if( comando.equals( EXTENSION_1 ) )
+        else if( comando.equals( ROTACIONDERECHA ) )
         {
-            ventana.reqFuncOpcion1( );
+            ventana.rotacionDerecha( );
         }
         else if( comando.equals( EXTENSION_2 ) )
         {

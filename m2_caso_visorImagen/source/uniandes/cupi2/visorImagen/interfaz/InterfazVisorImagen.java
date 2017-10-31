@@ -175,9 +175,9 @@ public class InterfazVisorImagen extends JFrame
     /**
      * Extensi�n 1
      */
-    public void reqFuncOpcion1( )
+    public void rotacionDerecha( )
     {
-        panelImagen.extension1( );
+        panelImagen.rotarImagenALaDerecha();
     }
 
     /**

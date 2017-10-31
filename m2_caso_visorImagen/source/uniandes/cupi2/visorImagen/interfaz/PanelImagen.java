@@ -103,6 +103,13 @@ public class PanelImagen extends JPanel
         }
     }
 
+    public void rotarImagenALaDerecha() {
+    		if(imagen != null) {
+    			imagen.rotar90ALaDerecha();
+    			repaint();
+    		}
+    }
+    
     /**
      * Procesa la imagen con el m�todo que permite hacer una binarizaci�n
      * @param umbral Umbral de modificaci�n
