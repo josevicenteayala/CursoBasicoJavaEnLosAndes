@@ -11,6 +11,8 @@
  */
 package uniandes.cupi2.avion.mundo;
 
+import java.util.ArrayList;
+
 /**
  * Avión de pasajeros
  */
@@ -315,8 +317,44 @@ public class Avion
      */
     public int darDuracionTotalPeliculas()
     {
-    	//TODO Implemente el método según la documentación.
+    	int duracionTodasLasPeliculas = 0;
+        for( int i = 0; i < SILLAS_EJECUTIVAS; i++ )
+        {
+            if( sillasEjecutivas[ i ].sillaAsignada( ) )
+            {
+            	Pasajero pasajero = sillasEjecutivas[ i ].darPasajero();
+            	duracionTodasLasPeliculas = contarDuracionPeliculasPorPasajero(duracionTodasLasPeliculas, pasajero);
+            }
+        }
+    	
+        for( int i = 0; i < SILLAS_ECONOMICAS; i++ )
+        {
+            if( sillasEconomicas[ i ].sillaAsignada( ) )
+            {
+            	Pasajero pasajero = sillasEconomicas[ i ].darPasajero();
+            	duracionTodasLasPeliculas = contarDuracionPeliculasPorPasajero(duracionTodasLasPeliculas, pasajero);
+            }
+        }        
+        
+    	return duracionTodasLasPeliculas;
     }
+
+	/**
+	 * Permite contar la duracion de las peliculas de un pasajero
+	 * @param duracionTodasLasPeliculas
+	 * @param pasajero
+	 * @return
+	 */
+	private int contarDuracionPeliculasPorPasajero(int duracionTodasLasPeliculas, Pasajero pasajero) {
+		if(pasajero != null && pasajero.darPeliculas() != null && pasajero.darPeliculas().size()>0) {
+			ArrayList<Pelicula> listaPeliculasDelPasajero = pasajero.darPeliculas();
+			for (int j = 0; j < listaPeliculasDelPasajero.size(); j++) {
+				Pelicula pelicula = listaPeliculasDelPasajero.get(j);
+				duracionTodasLasPeliculas += pelicula.darDuracion();
+			}
+		}
+		return duracionTodasLasPeliculas;
+	}
     
     
     /**

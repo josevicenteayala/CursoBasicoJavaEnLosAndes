@@ -35,8 +35,7 @@ public class Pasajero
     /**
      * Lista de películas del pasajero.
      */
-    //TODO Declare el atributo
-    
+    private ArrayList<Pelicula> listaDePeliculas;
 
     //-----------------------------------------------------------------
     // Constructores
@@ -51,9 +50,8 @@ public class Pasajero
     public Pasajero( int unaCedula, String unNombre )
     {
         cedula = unaCedula;
-        nombre = unNombre;
-        
-        //TODO Inicialice la lista de películas.
+        nombre = unNombre;        
+        listaDePeliculas = new ArrayList<>();
     }
 
     //-----------------------------------------------------------------
@@ -95,9 +93,9 @@ public class Pasajero
      * Devuelve la lista de películas del pasajero.
      * @return Lista de películas del pasajero.
      */
-    public ArrayList darPeliculas()
+    public ArrayList<Pelicula> darPeliculas()
     {
-    	//TODO Implemente el método según la documentación.
+    	return listaDePeliculas;
     }
     
     /**
@@ -109,7 +107,8 @@ public class Pasajero
      */
     public void agregarPelicula(String nombre, String genero, int duracion, String director)
     {
-    	//TODO Implemente el método según la documentación.
+    	Pelicula pelicula = new Pelicula(nombre, genero, duracion, director);
+    	listaDePeliculas.add(pelicula);
     }
     
     /**
@@ -118,7 +117,12 @@ public class Pasajero
      */
     public int darDuracionTotalPeliculas()
     {
-    	//TODO Implemente el método según la documentación.
+    	int sumatoriaDuracionPelicula = 0;
+    	for (int i = 0; i < listaDePeliculas.size(); i++) {
+			Pelicula pelicula = listaDePeliculas.get(i);
+			sumatoriaDuracionPelicula += pelicula.darDuracion();
+		}
+    	return sumatoriaDuracionPelicula;
     }
     
     /**
@@ -126,9 +130,16 @@ public class Pasajero
      * @param genero Género al que pertencen las películas.
      * @return Lista de las películas que pertenecen al género.
      */
-    public ArrayList darPeliculasGenero(String genero)
+    public ArrayList<Pelicula> darPeliculasGenero(String genero)
     {
-    	//TODO Implemente el método según la documentación.
+    	ArrayList<Pelicula> listaPeliculasConGeneroIndicado = new ArrayList<>();
+    	for (int i = 0; i < listaDePeliculas.size(); i++) {
+			Pelicula pelicula = listaDePeliculas.get(i);
+			if(pelicula.darGenero().equals(genero)) {
+				listaPeliculasConGeneroIndicado.add(pelicula);
+			}
+		}    	
+    	return listaPeliculasConGeneroIndicado;
     }
     
     /**
@@ -137,8 +148,16 @@ public class Pasajero
      */
     public boolean tienePeliculasMismaDuracion()
     {
-    	//TODO Implemente el método según la documentación.
-    	
+    	for (int i = 0; i < listaDePeliculas.size(); i++) {
+			Pelicula pelicula = listaDePeliculas.get(i);
+			for(int j = 0; j< listaDePeliculas.size();j++) {
+				Pelicula pelicula2 = listaDePeliculas.get(j);
+				if(!pelicula.darNombre().equalsIgnoreCase(pelicula2.darNombre()) &&  pelicula.darDuracion() == pelicula2.darDuracion()) {
+					return true;
+				}
+			}
+		}        	
+    	return false;
     }
     
     
