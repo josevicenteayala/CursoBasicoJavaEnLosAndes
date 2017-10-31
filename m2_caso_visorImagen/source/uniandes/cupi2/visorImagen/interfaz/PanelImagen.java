@@ -1,14 +1,14 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id$ 
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
  * Ejercicio: n6_visorImagen 
  * Autor: Katalina Marcos
- * Modificación: Mario Sánchez - 28/06/2005
- * Modificación: Pablo Barvo - 1-Sep-2005
+ * Modificaciï¿½n: Mario Sï¿½nchez - 28/06/2005
+ * Modificaciï¿½n: Pablo Barvo - 1-Sep-2005
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
  */
 package uniandes.cupi2.visorImagen.interfaz;
@@ -45,7 +45,7 @@ public class PanelImagen extends JPanel
     //-----------------------------------------------------------------
 
     /**
-     * Crea el panel donde se proyectará la imagen. Si no encuentra la imagen se presenta el panel vacío
+     * Crea el panel donde se proyectarï¿½ la imagen. Si no encuentra la imagen se presenta el panel vacï¿½o
      */
     public PanelImagen( )
     {
@@ -63,7 +63,7 @@ public class PanelImagen extends JPanel
     }
 
     //-----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     //-----------------------------------------------------------------
 
     /**
@@ -80,7 +80,7 @@ public class PanelImagen extends JPanel
     }
 
     /**
-     * Procesa la imagen con el método que permite convertirla en su negativo
+     * Procesa la imagen con el mï¿½todo que permite convertirla en su negativo
      */
     public void convertirNegativo( )
     {
@@ -92,7 +92,7 @@ public class PanelImagen extends JPanel
     }
 
     /**
-     * Procesa la imagen con el método que permite calcular su reflejo
+     * Procesa la imagen con el mï¿½todo que permite calcular su reflejo
      */
     public void reflejarImagen( )
     {
@@ -104,8 +104,8 @@ public class PanelImagen extends JPanel
     }
 
     /**
-     * Procesa la imagen con el método que permite hacer una binarización
-     * @param umbral Umbral de modificación
+     * Procesa la imagen con el mï¿½todo que permite hacer una binarizaciï¿½n
+     * @param umbral Umbral de modificaciï¿½n
      */
     public void binarizarImagen( double umbral )
     {
@@ -117,7 +117,7 @@ public class PanelImagen extends JPanel
     }
 
     /**
-     * Procesa la imagen con el método que permite hacer un pixelamiento
+     * Procesa la imagen con el mï¿½todo que permite hacer un pixelamiento
      */
     public void pixelarImagen( )
     {
@@ -129,7 +129,7 @@ public class PanelImagen extends JPanel
     }
 
     /**
-     * Procesa la imagen con el método que permite convertirla a tonos de gris
+     * Procesa la imagen con el mï¿½todo que permite convertirla a tonos de gris
      */
     public void convertirAGrises( )
     {
@@ -141,14 +141,14 @@ public class PanelImagen extends JPanel
     }
 
     /**
-     * Procesa la imagen con el método que permite aplicar un operador de convolución, expresado como una matriz de valores
-     * @param conv Matriz de convolución. conv != null.
+     * Procesa la imagen con el mï¿½todo que permite aplicar un operador de convoluciï¿½n, expresado como una matriz de valores
+     * @param conv Matriz de convoluciï¿½n. conv != null.
      */
-    public void aplicarOperadorConvolución( double conv[][] )
+    public void aplicarOperadorConvolucion( double conv[][] )
     {
         if( imagen != null )
         {
-            //Aplica la matriz de convolución
+            //Aplica la matriz de convoluciï¿½n
             imagen.aplicarOperadorConvolucion( conv, InterfazVisorImagen.DIMENSION_CONVOLUCION );
             repaint( );
         }
@@ -156,7 +156,7 @@ public class PanelImagen extends JPanel
 
     /**
      * Pinta la imagen
-     * @param g Gráficas del panel
+     * @param g Grï¿½ficas del panel
      */
     public void paint( Graphics g )
     {
@@ -169,11 +169,11 @@ public class PanelImagen extends JPanel
     }
 
     //-----------------------------------------------------------------
-    // Puntos de Extensión
+    // Puntos de Extensiï¿½n
     //-----------------------------------------------------------------
 
     /**
-     * Procesa la imagen con el método de extensión 1
+     * Procesa la imagen con el mï¿½todo de extensiï¿½n 1
      */
     public void extension1( )
     {
@@ -186,7 +186,7 @@ public class PanelImagen extends JPanel
     }
 
     /**
-     * Procesa la imagen con el método de extensión 2
+     * Procesa la imagen con el mï¿½todo de extensiï¿½n 2
      */
     public void extension2( )
     {

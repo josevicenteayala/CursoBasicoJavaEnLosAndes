@@ -1,14 +1,14 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id$ 
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
  * Ejercicio: n6_visorImagen 
  * Autor: Katalina Marcos
- * Modificación: Mario Sánchez - 28/06/2005
- * Modificación: Pablo Barvo - 1-Sep-2005
+ * Modificaciï¿½n: Mario Sï¿½nchez - 28/06/2005
+ * Modificaciï¿½n: Pablo Barvo - 1-Sep-2005
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
  */
 
@@ -20,7 +20,7 @@ import java.awt.Color;
 import javax.swing.JFrame;
 
 /**
- * Interfaz del visor de imágenes
+ * Interfaz del visor de imï¿½genes
  */
 public class InterfazVisorImagen extends JFrame
 {
@@ -29,7 +29,7 @@ public class InterfazVisorImagen extends JFrame
     //-----------------------------------------------------------------
 
     /**
-     * Dimensión para la convolución
+     * Dimensiï¿½n para la convoluciï¿½n
      */
     public static final int DIMENSION_CONVOLUCION = 3;
 
@@ -48,12 +48,12 @@ public class InterfazVisorImagen extends JFrame
     private PanelBotones panelBotones;
 
     /**
-     * Diálogo para pedir la matriz de convolución
+     * Diï¿½logo para pedir la matriz de convoluciï¿½n
      */
     private DialogoMatrizConvolucion dialogoMatriz;
 
     /**
-     * Diálogo para pedir el umbral de binarización
+     * Diï¿½logo para pedir el umbral de binarizaciï¿½n
      */
     private DialogoUmbralBinarizacion dialogoUmbral;
 
@@ -62,11 +62,11 @@ public class InterfazVisorImagen extends JFrame
     //-----------------------------------------------------------------
 
     /**
-     * Crea la interfaz para el visor de imágenes
+     * Crea la interfaz para el visor de imï¿½genes
      */
     public InterfazVisorImagen( )
     {
-        //Establece el distribuidor gráfico
+        //Establece el distribuidor grï¿½fico
         setLayout( new BorderLayout( ) );
 
         //Crea y adiciona el panel de la imagen
@@ -77,20 +77,20 @@ public class InterfazVisorImagen extends JFrame
         panelBotones = new PanelBotones( this );
         add( panelBotones, BorderLayout.EAST );
 
-        //Crea el diálogo de la matriz de convolución
+        //Crea el diï¿½logo de la matriz de convoluciï¿½n
         dialogoMatriz = new DialogoMatrizConvolucion( this );
 
-        //Crea el diálogo del umbral de binarización
+        //Crea el diï¿½logo del umbral de binarizaciï¿½n
         dialogoUmbral = new DialogoUmbralBinarizacion( this );
 
-        setTitle( "Visor de Imágenes" );
+        setTitle( "Visor de Imï¿½genes" );
         pack( );
         setResizable( false );
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
     }
 
     //-----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     //-----------------------------------------------------------------
 
     /**
@@ -103,7 +103,7 @@ public class InterfazVisorImagen extends JFrame
     }
 
     /**
-     * Opción 1: convertir la imagen en su negativo
+     * Opciï¿½n 1: convertir la imagen en su negativo
      */
     public void convertirNegativo( )
     {
@@ -111,7 +111,7 @@ public class InterfazVisorImagen extends JFrame
     }
 
     /**
-     * Opción 2: reflejar la imagen
+     * Opciï¿½n 2: reflejar la imagen
      */
     public void reflejarImagen( )
     {
@@ -119,7 +119,7 @@ public class InterfazVisorImagen extends JFrame
     }
 
     /**
-     * Presenta el diálogo de definición del umbral de binarización
+     * Presenta el diï¿½logo de definiciï¿½n del umbral de binarizaciï¿½n
      */
     public void presentarDialogoUmbral( )
     {
@@ -127,8 +127,8 @@ public class InterfazVisorImagen extends JFrame
     }
 
     /**
-     * Opción 3: binarizar la imagen
-     * @param umbral de binarización
+     * Opciï¿½n 3: binarizar la imagen
+     * @param umbral de binarizaciï¿½n
      */
     public void binarizarImagen( double umbral )
     {
@@ -136,7 +136,7 @@ public class InterfazVisorImagen extends JFrame
     }
 
     /**
-     * Opción 4: pixelar la imagen
+     * Opciï¿½n 4: pixelar la imagen
      */
     public void pixelarImagen( )
     {
@@ -144,7 +144,7 @@ public class InterfazVisorImagen extends JFrame
     }
 
     /**
-     * Opción 5: convertir a tonos de gris la imagen
+     * Opciï¿½n 5: convertir a tonos de gris la imagen
      */
     public void convertirAGrises( )
     {
@@ -152,7 +152,7 @@ public class InterfazVisorImagen extends JFrame
     }
 
     /**
-     * Presenta el diálogo de definición de la matriz de convolución
+     * Presenta el diï¿½logo de definiciï¿½n de la matriz de convoluciï¿½n
      */
     public void presentarDialogoMatrizConvolucion( )
     {
@@ -160,20 +160,20 @@ public class InterfazVisorImagen extends JFrame
     }
 
     /**
-     * Opción 6: aplicar el operador de convolución representado en la matriz
-     * @param conv Matriz de convolución
+     * Opciï¿½n 6: aplicar el operador de convoluciï¿½n representado en la matriz
+     * @param conv Matriz de convoluciï¿½n
      */
     public void aplicarOperadorConvolucion( double conv[][] )
     {
-        panelImagen.aplicarOperadorConvolución( conv );
+        panelImagen.aplicarOperadorConvolucion( conv );
     }
 
     //-----------------------------------------------------------------
-    // Puntos de Extensión
+    // Puntos de Extensiï¿½n
     //-----------------------------------------------------------------
 
     /**
-     * Extensión 1
+     * Extensiï¿½n 1
      */
     public void reqFuncOpcion1( )
     {
@@ -181,7 +181,7 @@ public class InterfazVisorImagen extends JFrame
     }
 
     /**
-     * Extensión 2
+     * Extensiï¿½n 2
      */
     public void reqFuncOpcion2( )
     {
@@ -192,8 +192,8 @@ public class InterfazVisorImagen extends JFrame
     // Programa principal
     //-----------------------------------------------------------------
     /**
-     * Método para la ejecución del programa.
-     * @param args No hay argumentos para la ejecución.
+     * Mï¿½todo para la ejecuciï¿½n del programa.
+     * @param args No hay argumentos para la ejecuciï¿½n.
      */
     public static void main( String[] args )
     {
