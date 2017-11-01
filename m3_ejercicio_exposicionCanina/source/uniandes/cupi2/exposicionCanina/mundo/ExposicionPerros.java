@@ -342,6 +342,114 @@ public class ExposicionPerros
         return false;
     }
 
+    /**
+    * Ordena el vector de perros por edad descendentemente, usando el algoritmo de insercion
+    */
+    public void ordenarPorEdadDesc()
+    {
+    	if(!perros.isEmpty()){
+    		for(int i = 1; i < perros.size(); i++) {    			
+    			for(int j = i; j > 0 && ( perros.get(j -1).compararPorEdad(perros.get(j)) == Perro.MAYOR );j--) {
+    				Perro perroTemporal = perros.get(j);
+    				perros.set(j,perros.get(j-1));
+    				perros.set(j-1, perroTemporal);
+    			}
+    		}
+    	}        
+    }    
+    
+    /**
+    * Retorna el perro de menor edad del vector, a partir del vector ordenado 
+    * por edad de mayor a menor.
+    * @return Perro de menor edad de la exposicion
+    */
+    public Perro darPerroMenorEdad()
+    {
+    	ordenarPorEdadDesc();
+    	if(!perros.isEmpty()) {
+    		return perros.get(perros.size()-1);
+    	}
+    	return null;
+    }    
+    
+    /**
+    * Ordena el vector de perros de forma descendente por raza, usando el algoritmo burbuja
+    */
+    public void ordenarPorRazaDesc()
+    {
+    	if(!perros.isEmpty()){
+    		for (int i = perros.size(); i > 0; i--) {
+				for (int j = 0; j < i-1; j++) {
+					if(perros.get(j).compararPorRaza(perros.get(j+1)) == Perro.MAYOR) {
+						Perro perroTemporal = perros.get(j+1);
+						perros.set(j+1, perros.get(j));
+						perros.set(j, perroTemporal);
+					}
+				}
+			}
+    	}     	
+    }    
+    
+    /**
+    * Retorna la raza mas popular de la exposicion, a partir del vector ordenado descendentemente por raza
+    * @return Raza mas popular de la exposicion
+    */
+    public String darRazaMasPopular()
+    {
+    	ordenarPorRazaDesc();
+		String razaMasPopular = null;
+    	if(!perros.isEmpty()) {
+    		Map<String,Integer> mapaConCantidadPorRaza = new HashMap<>();
+    		for (int i = 1; i < perros.size(); i++) {
+				String razaAComparar = perros.get(i).darRaza();
+				if(mapaConCantidadPorRaza.containsKey(razaAComparar)) {
+					int cantidad = mapaConCantidadPorRaza.get(razaAComparar)+1;
+					mapaConCantidadPorRaza.put(razaAComparar, cantidad);
+				}else {
+					mapaConCantidadPorRaza.put(razaAComparar, 1);
+				}
+			}
+    		
+    		if(!mapaConCantidadPorRaza.isEmpty()) {
+    			Set<String> keySet = mapaConCantidadPorRaza.keySet();
+    			Iterator<String> iterator = keySet.iterator();
+    			int cantidadPorRaza = 0;
+    			while(iterator.hasNext()) {
+    				String raza = iterator.next();
+    				Integer cantidad = mapaConCantidadPorRaza.get(raza);
+    				if(cantidad > 1 && cantidad > cantidadPorRaza) {
+    					cantidadPorRaza = cantidad;
+    					razaMasPopular = raza;
+    				}
+    			}
+    		}
+    	}    	
+    	return razaMasPopular;
+    }    
+    
+    
+    /**
+    * Retorna la mediana de puntos de la exposicion, a partir del vector de perros ordenado por puntos
+    * @return Mediana de puntos de la exposicion
+    */
+    public double darMedianaPuntos()
+    {
+    	ordenarPorPuntos();
+    	if(perros != null && !perros.isEmpty()) {
+			int cantidadValores = perros.size();
+			if(cantidadValores % 2 == 0) {
+				int mitad = (cantidadValores / 2) - 1;
+				double valorMedio1 = perros.get(mitad).darPuntos();
+				double valorMedio2 = perros.get(++mitad).darPuntos();
+				return  ( valorMedio1 + valorMedio2) / 2 ;
+			}else {
+				int valorMedio = ((cantidadValores + 1) / 2) - 1;
+				return Double.valueOf(perros.get(valorMedio).darPuntos());
+			}    		
+    	}
+    	return 0;
+    }    
+    
     // -----------------------------------------------------------------
     // Puntos de Extensión
     // -----------------------------------------------------------------
@@ -352,7 +460,7 @@ public class ExposicionPerros
      */
     public void metodo1( )
     {
-       ordenarPorNombre();
+    	ordenarPorEdadDesc();
     }
 
     /**
@@ -361,6 +469,6 @@ public class ExposicionPerros
      */
     public void metodo2( )
     {
-    	ordenarPorPuntos();
+    	ordenarPorRazaDesc();
     }
 }
