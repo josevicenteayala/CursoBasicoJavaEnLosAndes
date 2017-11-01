@@ -1,0 +1,71 @@
+#---------------------------------------------------------
+# Perros de la exposición
+#---------------------------------------------------------
+
+total.perros = 11
+
+perro1.nombre = Puppy
+perro1.raza = Gran Danés
+perro1.imagen = .//data//gran_danes.jpg
+perro1.puntos = 70
+perro1.edad = 10
+
+perro2.nombre = Taylor
+perro2.raza = Beagle
+perro2.imagen = .//data//beagle.jpg
+perro2.puntos = 75
+perro2.edad = 11
+
+perro3.nombre = Cobrador
+perro3.raza = Akita
+perro3.imagen = .//data//akita.jpg
+perro3.puntos = 90
+perro3.edad = 12
+
+perro4.nombre = Brutal y Mamut
+perro4.raza = Doberman
+perro4.imagen = .//data//dobe.jpg
+perro4.puntos = 80
+perro4.edad = 13
+
+perro5.nombre = Maximus
+perro5.raza = Mastin Español
+perro5.imagen = .//data//mastinEsp.jpg
+perro5.puntos = 60
+perro5.edad = 18
+
+perro6.nombre = Tony
+perro6.raza = Bull Terrier
+perro6.imagen = .//data//bullTerrier.jpg
+perro6.puntos = 63
+perro6.edad = 18
+
+perro7.nombre = Nieve
+perro7.raza = Gigante de los Pireneos
+perro7.imagen = .//data//gigan_pirineos.jpg
+perro7.puntos = 50
+perro7.edad = 19
+
+perro8.nombre = Titán
+perro8.raza = Pug
+perro8.imagen = .//data//pug.jpg
+perro8.puntos = 55
+perro8.edad = 28
+
+perro9.nombre = Leviatán
+perro9.raza = Chiuahua
+perro9.imagen = .//data//chih.jpg
+perro9.puntos = 40
+perro9.edad = 38
+
+perro10.nombre = Tarzán
+perro10.raza = Gosque
+perro10.imagen = .//data//gosque.jpg
+perro10.puntos = 100
+perro10.edad = 137
+
+perro11.nombre = Fido
+perro11.raza = Mastin Napolitano
+perro11.imagen = .//data//mastin.jpg
+perro11.puntos = 83
+perro11.edad = 16

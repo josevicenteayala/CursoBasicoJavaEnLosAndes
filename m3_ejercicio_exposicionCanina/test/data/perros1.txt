@@ -1,0 +1,83 @@
+#---------------------------------------------------------
+# Perros de la exposición
+#---------------------------------------------------------
+
+total.perros = 13
+
+perro1.nombre = 1
+perro1.raza = 1
+perro1.imagen = 1
+perro1.puntos = 1
+perro1.edad = 1
+
+perro2.nombre = 2
+perro2.raza = 2
+perro2.imagen = 2
+perro2.puntos = 2
+perro2.edad = 2
+
+perro3.nombre = 3
+perro3.raza = 3
+perro3.imagen = 3
+perro3.puntos = 3
+perro3.edad = 3
+
+perro4.nombre = 4
+perro4.raza = 4
+perro4.imagen = 4
+perro4.puntos = 4
+perro4.edad = 4
+
+perro5.nombre = 5
+perro5.raza = 5
+perro5.imagen = 5
+perro5.puntos = 5
+perro5.edad = 5
+
+perro6.nombre = 6
+perro6.raza = 6
+perro6.imagen = 6
+perro6.puntos = 6
+perro6.edad = 6
+
+perro7.nombre = 7
+perro7.raza = 7
+perro7.imagen = 7
+perro7.puntos = 7
+perro7.edad = 7
+
+perro8.nombre = 8
+perro8.raza = 8
+perro8.imagen = 8
+perro8.puntos = 8
+perro8.edad = 8
+
+perro9.nombre = 9
+perro9.raza = 9
+perro9.imagen = 9
+perro9.puntos = 9
+perro9.edad = 9
+
+perro10.nombre = 10
+perro10.raza = 10
+perro10.imagen = 10
+perro10.puntos = 10
+perro10.edad = 10
+
+perro11.nombre = 11
+perro11.raza = 11
+perro11.imagen = 11
+perro11.puntos = 11
+perro11.edad = 11
+
+perro12.nombre = 12
+perro12.raza = 12
+perro12.imagen = 12
+perro12.puntos = 12
+perro12.edad = 12
+
+perro13.nombre = 13
+perro13.raza = 13
+perro13.imagen = 13
+perro13.puntos = 13
+perro13.edad = 13

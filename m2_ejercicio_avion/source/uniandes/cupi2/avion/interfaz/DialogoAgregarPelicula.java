@@ -20,7 +20,7 @@ import uniandes.cupi2.avion.mundo.Pasajero;
 import uniandes.cupi2.avion.mundo.Pelicula;
 
 /**
- * Dialogo para agregar una película.
+ * Dialogo para agregar una pelï¿½cula.
  */
 public class DialogoAgregarPelicula extends JDialog implements ActionListener
 {
@@ -34,54 +34,54 @@ public class DialogoAgregarPelicula extends JDialog implements ActionListener
     private final static String ACEPTAR = "ACEPTAR";
 
     /**
-     * Ventana principal de la aplicación
+     * Ventana principal de la aplicaciï¿½n
      */
     private InterfazAvion principal;
 
     /**
-     * Etiqueta cédula pasajero.
+     * Etiqueta cï¿½dula pasajero.
      */
     private JLabel labelCedulaPasajero;
 
     /**
-     * Etiqueta nombre película.
+     * Etiqueta nombre pelï¿½cula.
      */
     private JLabel labelNombre;
 
     /**
-     * Etiqueta género pelicula.
+     * Etiqueta gï¿½nero pelicula.
      */
     private JLabel labelGenero;
 
     /**
-     * Etiqueta duración película.
+     * Etiqueta duraciï¿½n pelï¿½cula.
      */
     private JLabel labelDuracion;
 
     /**
-     * Etiqueta director película.
+     * Etiqueta director pelï¿½cula.
      */
     private JLabel labelDirector;
 
     /**
-     * Texto cédula pasajero.
+     * Texto cï¿½dula pasajero.
      */
     private JTextField textoCedulaPasajero;
     
     /**
-     * Texto nombre película.
+     * Texto nombre pelï¿½cula.
      */
     private JTextField textoNombre;
 
     /**
-     * Combo género.
+     * Combo gï¿½nero.
      */
     private JComboBox comboGenero;
 
     /**
-     * Texto duración.
+     * Texto duraciï¿½n.
      */
-    private JTextField textoDuración;
+    private JTextField textoDuracion;
 
     /**
      * Texto director.
@@ -89,17 +89,17 @@ public class DialogoAgregarPelicula extends JDialog implements ActionListener
     private JTextField textoDirector;
 
     /**
-     * Botón aceptar.
+     * Botï¿½n aceptar.
      */
     private JButton botonAceptar;
 
     // -----------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------
 
     /**
      * Constructor del dialogo.
-     * @param ventana Ventana principal de la aplicación.
+     * @param ventana Ventana principal de la aplicaciï¿½n.
      */
     public DialogoAgregarPelicula( InterfazAvion ventana)
     {
@@ -115,13 +115,13 @@ public class DialogoAgregarPelicula extends JDialog implements ActionListener
         JPanel panelSur = new JPanel( );
 
         panelNorte.setLayout(new GridLayout(1, 2));
-        labelCedulaPasajero = new JLabel( "Cédula pasajero:" );
+        labelCedulaPasajero = new JLabel( "Cï¿½dula pasajero:" );
         panelNorte.add( labelCedulaPasajero );
         textoCedulaPasajero = new JTextField( );
         panelNorte.add( textoCedulaPasajero );
         add(panelNorte, BorderLayout.NORTH);
         
-        panelCentral.setBorder( new TitledBorder( "Información película" ) );
+        panelCentral.setBorder( new TitledBorder( "Informaciï¿½n pelï¿½cula" ) );
         panelCentral.setLayout( new GridLayout( 4, 2, 5, 5 ) );
 
         labelNombre = new JLabel( "Nombre:" );
@@ -130,7 +130,7 @@ public class DialogoAgregarPelicula extends JDialog implements ActionListener
         textoNombre = new JTextField( );
         panelCentral.add( textoNombre );
 
-        labelGenero = new JLabel( "Género:" );
+        labelGenero = new JLabel( "Gï¿½nero:" );
         panelCentral.add( labelGenero );
 
         comboGenero = new JComboBox();
@@ -141,11 +141,11 @@ public class DialogoAgregarPelicula extends JDialog implements ActionListener
         comboGenero.addItem(Pelicula.ROMANCE);
         panelCentral.add( comboGenero );
 
-        labelDuracion = new JLabel( "Duración (mins):" );
+        labelDuracion = new JLabel( "Duraciï¿½n (mins):" );
         panelCentral.add( labelDuracion );
 
-        textoDuración = new JTextField( );
-        panelCentral.add( textoDuración );
+        textoDuracion = new JTextField( );
+        panelCentral.add( textoDuracion );
 
         labelDirector = new JLabel( "Director:" );
         panelCentral.add( labelDirector );
@@ -169,8 +169,8 @@ public class DialogoAgregarPelicula extends JDialog implements ActionListener
     }
 
     /**
-     * Método para manejar acciones
-     * @param e Acción generada
+     * Mï¿½todo para manejar acciones
+     * @param e Acciï¿½n generada
      */
     public void actionPerformed( ActionEvent e )
     {
@@ -181,7 +181,7 @@ public class DialogoAgregarPelicula extends JDialog implements ActionListener
             try
             {
             	int cedula = Integer.parseInt(textoCedulaPasajero.getText());
-                int duracion = Integer.parseInt( textoDuración.getText());
+                int duracion = Integer.parseInt( textoDuracion.getText());
                 String nombre = textoNombre.getText();
                 String genero = (String) comboGenero.getSelectedItem();
                 String director = textoDirector.getText();
@@ -195,17 +195,17 @@ public class DialogoAgregarPelicula extends JDialog implements ActionListener
                     }
                     else
                     {
-                    	JOptionPane.showMessageDialog(this, "La duración de la película debe ser mayor a cero.", "Error", JOptionPane.ERROR_MESSAGE);
+                    	JOptionPane.showMessageDialog(this, "La duraciï¿½n de la pelï¿½cula debe ser mayor a cero.", "Error", JOptionPane.ERROR_MESSAGE);
                     }
 
                     
                 }
                 else
-                    JOptionPane.showMessageDialog( this, "Debe ingresar nombre de la película y director." );
+                    JOptionPane.showMessageDialog( this, "Debe ingresar nombre de la pelï¿½cula y director." );
             }
             catch( Exception e2 )
             {
-                JOptionPane.showMessageDialog( this, "Error en el formato de la duración y/o cédula." );
+                JOptionPane.showMessageDialog( this, "Error en el formato de la duraciï¿½n y/o cï¿½dula." );
             }
             dispose( );
 
