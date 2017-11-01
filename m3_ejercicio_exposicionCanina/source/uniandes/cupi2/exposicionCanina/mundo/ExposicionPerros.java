@@ -29,7 +29,7 @@ public class ExposicionPerros
     /**
      * Es el vector que contiene todos los perros
      */
-    private ArrayList perros;
+    private ArrayList<Perro> perros;
 
     // -----------------------------------------------------------------
     // Constructores
@@ -40,7 +40,7 @@ public class ExposicionPerros
      */
     public ExposicionPerros( )
     {
-        perros = new ArrayList( );
+        perros = new ArrayList<>( );
     }
 
     // -----------------------------------------------------------------
@@ -51,50 +51,89 @@ public class ExposicionPerros
      * Retorna una lista de perros. La lista que se retorna no es la misma que la almacenada en esta clase, pero si tiene el mismo orden.
      * @return Lista de perros
      */
-    public ArrayList darPerros( )
+    public ArrayList<Perro> darPerros( )
     {
-        ArrayList copiaLista = new ArrayList( perros );
+        ArrayList<Perro> copiaLista = new ArrayList<>( perros );
         return copiaLista;
     }
 
     /**
-     * TODO:
      * Organiza la lista de perros por raza usando el algoritmo de burbuja. <br>
      * <b>post: </b>La lista de perros está ordenada por raza (orden ascendente).
      */
     public void ordenarPorRaza( )
     {
-    	
-    	//TODO
+    	if(!perros.isEmpty()){
+    		for (int i = perros.size(); i > 0; i--) {
+				for (int j = 0; j < i-1; j++) {
+					Perro perro1 = perros.get(j);
+					Perro perro2 = perros.get(j+1);
+					if(perro1.compararPorRaza(perro2) == Perro.MENOR) {
+						Perro perroTemporal = perro2;
+						perros.set(j+1, perro1);
+						perros.set(j, perroTemporal);
+					}
+				}
+			}
+    	}
     }
 
     /**
-     * TODO:
      * Organiza la lista de perros por nombre usando el algoritmo de inserción<br>
      * <b>post: </b>La lista de perros está ordenada por nombre (orden ascendente).
      */
     public void ordenarPorNombre( )
     {
-    	//TODO
+    	if(!perros.isEmpty()){
+    		for(int i = 1; i < perros.size(); i++) {    			
+    			for(int j = i; j > 0 && ( perros.get(j -1).compararPorNombre(perros.get(j)) == Perro.MENOR );j--) {
+    				Perro perroTemporal = perros.get(j);
+    				perros.set(j,perros.get(j-1));
+    				perros.set(j-1, perroTemporal);
+    			}
+    		}
+    	}
     }
     /**
-     * TODO:
      * Organiza la lista de perros por puntos usando el algoritmo de burbuja<br>
      * <b>post: </b>La lista de perros está ordenada por puntos (orden ascendente).
      */
     public void ordenarPorPuntos( )
     {
-    	//TODO
+    	if(!perros.isEmpty()){
+    		for (int i = perros.size(); i > 0; i--) {
+				for (int j = 0; j < i-1; j++) {
+					if(perros.get(j).compararPorPuntos(perros.get(j+1)) == Perro.MENOR) {
+						Perro perroTemporal = perros.get(j+1);
+						perros.set(j+1, perros.get(j));
+						perros.set(j, perroTemporal);
+					}
+				}
+			}
+    	}    	
     }
 
     /**
-     * TODO:
      * Organiza la lista de perros por edad usando el algoritmo de selección. <br>
      * <b>post: </b>La lista de perros está ordenada por edad (orden ascendente).
      */
     public void ordenarPorEdad( )
     {
-    	//TODO
+    	if(!perros.isEmpty()) {
+    		for(int i = 0; i < perros.size(); i++) {
+    			Perro perroMasPequenoEncontrado = perros.get(i);
+    			int posicionDondeEstaElMenor = i;
+    			for(int j = i + 1; j < perros.size(); j++) {
+    				if(perroMasPequenoEncontrado.compararPorEdad(perros.get(j)) == Perro.MENOR) {
+    					perroMasPequenoEncontrado = perros.get(j); 
+    					posicionDondeEstaElMenor = j;
+    				}
+    			}    			
+    			Perro perroTemporal = perros.get(i);
+    			perros.set(i, perroMasPequenoEncontrado);
+    			perros.set(posicionDondeEstaElMenor, perroTemporal);
+    		}
+    	}
     }
 
     /**
@@ -322,6 +361,6 @@ public class ExposicionPerros
      */
     public void metodo2( )
     {
-    	  //TODO
+    	ordenarPorPuntos();
     }
 }

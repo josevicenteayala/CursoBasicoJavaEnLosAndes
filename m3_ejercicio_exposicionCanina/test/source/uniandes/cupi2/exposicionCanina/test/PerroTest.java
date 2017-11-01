@@ -49,6 +49,21 @@ public class PerroTest extends TestCase
     }
 
     /**
+     * Construye un arreglo de perros
+     */
+    private void setupEscenario2( )
+    {
+        Perro perro1 = new Perro( "Cookie", "Appenzeller", "imagen1", 1, 1 );
+        Perro perro2 = new Perro( "Pedro", "Dálmata", "imagen2", 25, 2 );
+        Perro perro3 = new Perro( "Pedro", "Mudi", "imagen3", 29, 3 );
+        Perro perro4 = new Perro( "Pedro", "Pastor belga", "imagen4", 72, 6 );
+        Perro perro5 = new Perro( "Pedro", "Ovejero", "imagen5", 52, 9 );
+        Perro perro6 = new Perro( "Pedro", "Saluki", "imagen6", 12, 1 );
+        Perro perro7 = new Perro( "Pedro", "Pitbull", "imagen7", 22, 4 );
+        Perro perro8 = new Perro( "Pedro", "Pomerania", "imagen8", 7, 5 );
+    }    
+    
+    /**
      * Verifica el constructor. <br>
      * <b> Métodos a probar: </b> <br>
      * Perro (constructor). <br>

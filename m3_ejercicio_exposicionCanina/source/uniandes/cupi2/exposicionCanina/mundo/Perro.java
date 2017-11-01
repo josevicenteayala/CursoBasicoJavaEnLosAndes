@@ -27,7 +27,13 @@ public class Perro
     // Atributos
     // -----------------------------------------------------------------
 
-    /**
+    public static final int MENOR = 1;
+
+	public static final int MAYOR = -1;
+
+	public static final int IGUALES = 0;
+
+	/**
      * El nombre del perro
      */
     private String nombre;
@@ -135,10 +141,10 @@ public class Perro
     public int compararPorNombre( Perro p )
     {
     	int valorComparacion = nombre.compareToIgnoreCase( p.nombre );
-    	if(valorComparacion < 0){
-    		valorComparacion = -1;
-    	}else if(valorComparacion == 0){
-    		valorComparacion = 0;
+    	if(valorComparacion < IGUALES){
+    		valorComparacion = MAYOR;
+    	}else if(valorComparacion == IGUALES){
+    		valorComparacion = IGUALES;
     	}else{
     		valorComparacion = 1;
     	}
@@ -155,12 +161,12 @@ public class Perro
     public int compararPorRaza( Perro p )
     {
         int valorComparacion = raza.compareToIgnoreCase( p.raza );
-    	if(valorComparacion < 0){
-    		valorComparacion = -1;
-    	}else if(valorComparacion == 0){
-    		valorComparacion = 0;
+    	if(valorComparacion < IGUALES){
+    		valorComparacion = MAYOR;
+    	}else if(valorComparacion == IGUALES){
+    		valorComparacion = IGUALES;
     	}else{
-    		valorComparacion = 1;
+    		valorComparacion = MENOR;
     	}
         return valorComparacion;
     }
@@ -175,11 +181,11 @@ public class Perro
     public int compararPorPuntos( Perro p )
     {
         if( puntos == p.puntos )
-            return 0;
+            return IGUALES;
         else if( puntos > p.puntos )
-            return 1;
+            return MENOR;
         else
-            return -1;
+            return MAYOR;
     }
 
     /**
@@ -192,11 +198,11 @@ public class Perro
     public int compararPorEdad( Perro p )
     {
         if( edad == p.edad )
-            return 0;
+            return IGUALES;
         else if( edad > p.edad )
-            return 1;
+            return MENOR;
         else
-            return -1;
+            return MAYOR;
     }
 
     /**
@@ -218,8 +224,8 @@ public class Perro
      */
     private void verificarInvariante( )
     {
-        assert ( puntos >= 0 ) : "Los puntos no pueden ser menores a 0";
-        assert ( edad > 0 ) : "La edad no puede ser 0";
+        assert ( puntos >= IGUALES ) : "Los puntos no pueden ser menores a 0";
+        assert ( edad > IGUALES ) : "La edad no puede ser 0";
         assert ( imagen != null ) : "La imagen no puede ser null";
         assert ( nombre != null ) : "El nombre no puede ser null";
         assert ( raza != null ) : "La raza no puede ser null";

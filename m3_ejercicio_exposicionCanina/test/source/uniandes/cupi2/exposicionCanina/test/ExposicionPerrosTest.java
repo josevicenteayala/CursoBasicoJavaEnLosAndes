@@ -179,7 +179,7 @@ public class ExposicionPerrosTest extends TestCase
         setupEscenario2( );
 
         exposicion.ordenarPorPuntos( );
-        ArrayList perros = exposicion.darPerros( );
+        ArrayList<Perro> perros = exposicion.darPerros( );
         Perro p0 = ( Perro )perros.get( 0 );
         String nombrePerro = p0.darNombre( );
         exposicion.ordenarPorRaza( );
@@ -311,7 +311,7 @@ public class ExposicionPerrosTest extends TestCase
         setupEscenario2( );
 
         exposicion.ordenarPorRaza( );
-        ArrayList perros = exposicion.darPerros( );
+        ArrayList<Perro> perros = exposicion.darPerros( );
         for( int i = 1; i < perros.size( ); i++ )
         {
             Perro p0 = ( Perro )perros.get( i - 1 );
@@ -336,7 +336,7 @@ public class ExposicionPerrosTest extends TestCase
         setupEscenario2( );
 
         exposicion.ordenarPorNombre( );
-        ArrayList perros = exposicion.darPerros( );
+        ArrayList<Perro> perros = exposicion.darPerros( );
         for( int i = 1; i < perros.size( ); i++ )
         {
             Perro p0 = ( Perro )perros.get( i - 1 );
@@ -389,7 +389,7 @@ public class ExposicionPerrosTest extends TestCase
         setupEscenario2( );
 
         int posMayor = exposicion.buscarPerroMayorPuntaje( );
-        ArrayList perros = exposicion.darPerros( );
+        ArrayList<Perro> perros = exposicion.darPerros( );
         Perro mayor = ( Perro )perros.get( posMayor );
         exposicion.ordenarPorPuntos( );
         perros = exposicion.darPerros( );

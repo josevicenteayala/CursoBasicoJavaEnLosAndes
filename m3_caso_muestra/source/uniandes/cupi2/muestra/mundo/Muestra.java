@@ -221,14 +221,14 @@ public class Muestra {
 		for (int i = 0; i < tamanio - 1; i++) {
 			int menor = arreglo[i];
 			int cual = i;
-			// Busca el m�nimo elemento entre una posici�n i y el final de la lista
+			// Busca el minimo elemento entre una posicion i y el final de la lista
 			for (int j = i + 1; j < tamanio; j++) {
 				if (arreglo[j] < menor) {
 					menor = arreglo[j];
 					cual = j;
 				}
 			}
-			// Intercambia el m�nimo con el elemento de la posici�n i
+			// Intercambia el minimo con el elemento de la posicion i
 			int temp = arreglo[i];
 			arreglo[i] = menor;
 			arreglo[cual] = temp;
@@ -248,7 +248,7 @@ public class Muestra {
 		int[] arreglo = darCopiaValores();
 		for (int i = tamanio; i > 0; i--) {
 			for (int j = 0; j < i - 1; j++) {
-				// Intercambia si est�n en el orden equivocado
+				// Intercambia si estan en el orden equivocado
 				if (arreglo[j] > arreglo[j + 1]) {
 					int temp = arreglo[j];
 					arreglo[j] = arreglo[j + 1];
