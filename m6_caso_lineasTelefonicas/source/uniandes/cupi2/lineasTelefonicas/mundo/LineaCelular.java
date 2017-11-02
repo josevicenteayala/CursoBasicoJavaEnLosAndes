@@ -1,8 +1,8 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
  * $Id$ 
- * Universidad de los Andes (Bogotá - Colombia) 
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia) 
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1  
  * 
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co) 
@@ -15,7 +15,7 @@ package uniandes.cupi2.lineasTelefonicas.mundo;
 
 
 /**
- * Clase que representa una línea telefónica celular.  Hereda la clase LineaTelefonica.
+ * Clase que representa una linea telefï¿½nica celular.  Hereda la clase LineaTelefonica.
  */
 public class LineaCelular extends LineaTelefonica{
 	
@@ -26,12 +26,12 @@ public class LineaCelular extends LineaTelefonica{
 
     
     /**
-     * Número de minutos locales consumidos.
+     * Nï¿½mero de minutos locales consumidos.
      */
     private int numeroMinutosLocal;
 
     /**
-     * Número de minutos celulares consumidos.
+     * Nï¿½mero de minutos celulares consumidos.
      */
     private int numeroMinutosCelular;
     
@@ -42,13 +42,13 @@ public class LineaCelular extends LineaTelefonica{
     
     
     //-----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     //-----------------------------------------------------------------
     
     /**
-     * Constructor que inicializa la línea telefónica celular <br>
-     * <b>post: </b> La línea celular inicializó sus valores en cero. 
-     *               Se inicializaron los valores de la línea telefonica heredada en cero a través del llamado a su respectivo constructor.
+     * Constructor que inicializa la lï¿½nea telefï¿½nica celular <br>
+     * <b>post: </b> La lï¿½nea celular inicializï¿½ sus valores en cero. 
+     *               Se inicializaron los valores de la lï¿½nea telefonica heredada en cero a travï¿½s del llamado a su respectivo constructor.
      */    
 	public LineaCelular() {
 		//Llamado al constructor de la clase heredada.
@@ -60,16 +60,16 @@ public class LineaCelular extends LineaTelefonica{
 	}
 	
     /**
-     * Devuelve el número de minutos locales consumidos
-     * @return Número de minutos locales consumidos
+     * Devuelve el nï¿½mero de minutos locales consumidos
+     * @return Nï¿½mero de minutos locales consumidos
      */
     public int darNumeroMinutosLocal() {
 		return numeroMinutosLocal;
 	}
 
     /**
-     * Devuelve el número de minutos celulares consumidos
-     * @return Número de minutos celulares consumidos
+     * Devuelve el nï¿½mero de minutos celulares consumidos
+     * @return Nï¿½mero de minutos celulares consumidos
      */    
 	public int darNumeroMinutosCelular() {
 		return numeroMinutosCelular;
@@ -94,25 +94,24 @@ public class LineaCelular extends LineaTelefonica{
 	
     
     /**
-     * Agrega una llamada local a la línea celular <br>
+     * Agrega una llamada local a la lï¿½nea celular <br>
      * <b>pre: </b>  Hay saldo local disponible para realizar la llamada 
      * <b>post: </b> Se incremento en 1 numeroDeLlamadas, se incremento numeroDeMinutos en minutos, se incremento numeroMinutosLocal en minutos, 
      *               costoLlamadas aumento en ( minutos * 20 ) y saldoDisponibleLocal disminuye en ( minutos * 20 )
-     * @param minutos Número de minutos de la llamada. minutos >0.
+     * @param minutos Nï¿½mero de minutos de la llamada. minutos >0.
      */
     public void agregarLlamadaLocal( int minutos )
     {
         //
-        //Una llamada más. Se modifica el atributo protegido heredado.
+        //Una llamada mas. Se modifica el atributo protegido heredado.
         numeroLlamadas = numeroLlamadas + 1;
         //
         //Suma los minutos consumidos. Se modifica el atributo protegido heredado.
         numeroMinutos = numeroMinutos + minutos;
         
         //Suma el costo (costo por minuto: 20 pesos). 
-        //Se obtiene y modifica el atributo privado heredados a través de los métodos publicos heredados.
-        double nuevoTotalLlamadas = darCostoLlamadas() + ( minutos * 20 );
-        modificarCostoLlamada(nuevoTotalLlamadas);
+        //Se obtiene y modifica el atributo privado heredados a travï¿½s de los mï¿½todos publicos heredados.
+        costoLlamadas = costoLlamadas + ( minutos * 20 );
 
         //Suma los minutos locales consumidos. Se modifica el atributo propio de esta clase.
         numeroMinutosLocal = numeroMinutosLocal + minutos;        
@@ -123,19 +122,19 @@ public class LineaCelular extends LineaTelefonica{
     
     
     /**
-     * Agrega una llamada a celular a la línea celular <br>
+     * Agrega una llamada a celular a la lï¿½nea celular <br>
      * <b>post: </b> Se incremento en 1 numeroDeLlamadas, se incremento numeroDeMinutos en minutos, costoLlamadas aumento en ( minutos * 999 )
      * 				 y se incremento numeroMinutosCelular en minutos.
-     * @param minutos Número de minutos de la llamada. minutos >0.
+     * @param minutos Nï¿½mero de minutos de la llamada. minutos >0.
      */
     public void agregarLlamadaCelular( int minutos )
     {
-    	//Se invoca el método agregarLlamadaCelular de la clase hereda a través de la palabra reservada "super".
-    	//Esta invocación incrementa en 1 numeroDeLlamadas, incrementa numeroDeMinutos en minutos y aumenta costoLlamadas en ( minutos * 999 )
+    	//Se invoca el metodo agregarLlamadaCelular de la clase hereda a travï¿½s de la palabra reservada "super".
+    	//Esta invocacion incrementa en 1 numeroDeLlamadas, incrementa numeroDeMinutos en minutos y aumenta costoLlamadas en ( minutos * 999 )
     	super.agregarLlamadaCelular(minutos);
     	
-    	//Modifica el costo total de las llamadas con el valor dado por parámetro.
-    	modificarCostoLlamada( darCostoLlamadas() - minutos*989);
+    	//Modifica el costo total de las llamadas con el valor dado por parï¿½metro.
+    	costoLlamadas = costoLlamadas - ( minutos * 989 );
     	
         //Suma los minutos a celular consumidos. Se modifica el atributo propio de esta clase.
         numeroMinutosCelular = numeroMinutosCelular + minutos;
@@ -143,13 +142,24 @@ public class LineaCelular extends LineaTelefonica{
     
     
     /**
-     * Sobreescribre el método heredado y lo deja sin implementación para evitar realizar alguna llamada a larga distancia desde una línea celular <br>
-     * @param minutos Número de minutos de la llamada. minutos >0.
+     * Sobreescribre el mï¿½todo heredado y lo deja sin implementaciï¿½n para evitar realizar alguna llamada a larga distancia desde una lï¿½nea celular <br>
+     * @param minutos Nï¿½mero de minutos de la llamada. minutos >0.
      */
     public void agregarLlamadaLargaDistancia( int minutos )
     {   
-    	//Sin implementación.
+    	//Sin implementaciï¿½n.
     }    
 	
+    /**
+    * Reinicia los atributos de la linea celular, ademas de los atributos heredados de la
+    * clase padre. Este metodo sobreescribe al de mismo nombre de la clase LineaTelefonica
+    */
+    @Override
+    public void reiniciar() {
+    		super.reiniciar();
+    		numeroMinutosLocal = 0;
+    		numeroMinutosCelular = 0;
+    		saldoDisponibleLocal = 50000;
+    }
 
 }

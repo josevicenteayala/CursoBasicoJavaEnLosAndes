@@ -1,8 +1,8 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
  * $Id$ 
- * Universidad de los Andes (Bogotá - Colombia) 
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia) 
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1  
  * 
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co) 
@@ -14,9 +14,9 @@
 package uniandes.cupi2.lineasTelefonicas.mundo;
 
 /**
- * Clase que representa una línea telefónica
+ * Clase que representa una lï¿½nea telefï¿½nica
  */
-public class LineaTelefonica
+public class LineaTelefonica implements ILineaTelefonica
 {
 
     //-----------------------------------------------------------------
@@ -24,27 +24,27 @@ public class LineaTelefonica
     //-----------------------------------------------------------------
 
     /**
-     * Número de llamadas realizadas
+     * Nï¿½mero de llamadas realizadas
      */
     protected int numeroLlamadas;
 
     /**
-     * Número de minutos consumidos
+     * Nï¿½mero de minutos consumidos
      */
     protected int numeroMinutos;
 
     /**
      * Costo total de las llamadas
      */
-    private double costoLlamadas;
+    protected double costoLlamadas;
 
     //-----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     //-----------------------------------------------------------------
 
     /**
-     * Constructor que inicializa la línea telefónica <br>
-     * <b>post: </b> La línea se inicializó con valores en cero.
+     * Constructor que inicializa la lï¿½nea telefï¿½nica <br>
+     * <b>post: </b> La lï¿½nea se inicializï¿½ con valores en cero.
      */
     public LineaTelefonica( )
     {
@@ -55,7 +55,7 @@ public class LineaTelefonica
     }
 
     /**
-     * Reinicia la línea telefónica, dejando todos sus valores en cero.
+     * Reinicia la lï¿½nea telefï¿½nica, dejando todos sus valores en cero.
      */
     public void reiniciar( )
     {
@@ -74,8 +74,8 @@ public class LineaTelefonica
     }
 
     /**
-     * Devuelve el número de llamadas realizadas por esta línea
-     * @return Número de llamadas realizadas por esta línea
+     * Devuelve el nï¿½mero de llamadas realizadas por esta lï¿½nea
+     * @return Nï¿½mero de llamadas realizadas por esta lï¿½nea
      */
     public int darNumeroLlamadas( )
     {
@@ -83,8 +83,8 @@ public class LineaTelefonica
     }
 
     /**
-     * Devuelve el número de minutos consumidos
-     * @return Número de minutos consumidos
+     * Devuelve el nï¿½mero de minutos consumidos
+     * @return Nï¿½mero de minutos consumidos
      */
     public int darNumeroMinutos( )
     {
@@ -94,7 +94,7 @@ public class LineaTelefonica
     
     
     /**
-     * Modifica el costo de las llamadas con el valor dado por parámetro.
+     * Modifica el costo de las llamadas con el valor dado por parï¿½metro.
      * @param pCostoLlamadas Nuevo costo de las llamadas;
      */
     public void modificarCostoLlamada(double pCostoLlamadas){
@@ -102,14 +102,14 @@ public class LineaTelefonica
     }
     
     /**
-     * Agrega una llamada local a la línea telefónica <br>
+     * Agrega una llamada local a la lï¿½nea telefï¿½nica <br>
      * <b>post: </b> Se incremento en 1 numeroDeLlamadas, se incremento numeroDeMinutos en minutos, costoLlamadas aumento en ( minutos * 35 )
-     * @param minutos Número de minutos de la llamada. minutos >0.
+     * @param minutos Nï¿½mero de minutos de la llamada. minutos >0.
      */
     public void agregarLlamadaLocal( int minutos )
     {
         //
-        //Una llamada más
+        //Una llamada mï¿½s
         numeroLlamadas = numeroLlamadas + 1;
         //
         //Suma los minutos consumidos
@@ -120,14 +120,14 @@ public class LineaTelefonica
     }
 
     /**
-     * Agrega una llamada de larga distancia a la línea telefónica <br>
+     * Agrega una llamada de larga distancia a la lï¿½nea telefï¿½nica <br>
      * <b>post: </b> Se incremento en 1 numeroDeLlamadas, se incremento numeroDeMinutos en minutos, costoLlamadas aumento en ( minutos * 380 )
-     * @param minutos Número de minutos de la llamada. minutos >0.
+     * @param minutos Nï¿½mero de minutos de la llamada. minutos >0.
      */
     public void agregarLlamadaLargaDistancia( int minutos )
     {
         //
-        //Una llamada más
+        //Una llamada mï¿½s
         numeroLlamadas = numeroLlamadas + 1;
         //
         //Suma los minutos consumidos
@@ -138,14 +138,14 @@ public class LineaTelefonica
     }
 
     /**
-     * Agrega una llamada a celular a la línea telefónica <br>
+     * Agrega una llamada a celular a la lï¿½nea telefï¿½nica <br>
      * <b>post: </b> Se incremento en 1 numeroDeLlamadas, se incremento numeroDeMinutos en minutos, costoLlamadas aumento en ( minutos * 999 )
-     * @param minutos Número de minutos de la llamada. minutos >0.
+     * @param minutos Nï¿½mero de minutos de la llamada. minutos >0.
      */
     public void agregarLlamadaCelular( int minutos )
     {
         //
-        //Una llamada más
+        //Una llamada mï¿½s
         numeroLlamadas = numeroLlamadas + 1;
         //
         //Suma los minutos consumidos
