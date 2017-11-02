@@ -23,7 +23,7 @@ public class LineaVozIP extends LineaTelefonica {
 	/**
 	 * indica el saldo disponible para hacer llamadas
 	 */
-	private double saldoDisponible;
+	protected double saldoDisponible;
 	
 	/**
 	 * @return the numeroMinutosLargaDistancia
