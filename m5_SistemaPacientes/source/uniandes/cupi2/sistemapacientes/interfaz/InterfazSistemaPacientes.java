@@ -21,6 +21,21 @@ public class InterfazSistemaPacientes extends JFrame {
 	private SistemaPacientes sistemaPacientes;
 	
 	/**
+	 * Es el panel que contiene los datos del paciente
+	 */
+	private PanelDatosPaciente panelDatosPaciente;
+	
+	/**
+	 * Es el panel que contiene los elementos para realizar consultas sobre paciente
+	 */
+	private PanelDatosMuestra panelDatosMuestra;
+	
+	/**
+	 * El el panel que contiene los elementos para ejecutar las extensiones y la navegacion
+	 */
+	private PanelExtensiones panelExtensiones;
+	
+	/**
 	 * Construye una nueva interfaz de usuario, iniciandola con los datos del sistema de pacientes
 	 */
 	public InterfazSistemaPacientes() {
@@ -28,7 +43,16 @@ public class InterfazSistemaPacientes extends JFrame {
 		setSize(700,450);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
+		//Crea la clase principal
 		sistemaPacientes = new SistemaPacientes();
+		
+		panelDatosPaciente = new PanelDatosPaciente();
+		panelDatosMuestra = new PanelDatosMuestra();
+		panelExtensiones = new PanelExtensiones();
+		
+		add(panelDatosPaciente, BorderLayout.NORTH);
+		add(panelDatosMuestra, BorderLayout.CENTER);
+		add(panelExtensiones, BorderLayout.SOUTH);
 	}
 	
 	
