@@ -17,6 +17,8 @@ import javax.swing.border.TitledBorder;
 
 public class PanelDatosPaciente extends JPanel implements ActionListener{
 
+	private static final String FOTO = "FOTO";
+
 	private static final String CADENA_VACIA = "";
 
 	private static final String TITULO_DATOS_DEL_PACIENTE = "Datos del paciente";
@@ -130,7 +132,7 @@ public class PanelDatosPaciente extends JPanel implements ActionListener{
 		panelInformacion.add(butEdad);
 		panelInformacion.add(txtEdad);
 		
-		labImagen = new JLabel("FOTO");
+		labImagen = new JLabel(FOTO);
 		panelFoto.add(labImagen);
 	}
 	
